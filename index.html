@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Login Page</title>
-    <script src="login/login.js"></script>
     <link rel="stylesheet" href="login/login.css">
 
 </head>
@@ -17,21 +16,25 @@
         <b id="login_text">Metrodex Login</b>
     </div>
 
-    <div id="input_block">
-        <input type="text", placeholder="Username">
+    <div class="input_block">
+        <input type="email", placeholder="Email", id="email">
     </div>
 
-    <div id="input_block">
-        <input type="text", placeholder="Password">
+    <div class="input_block">
+        <input type="password", placeholder="Password", id="password">
 
     </div>
 
-    <button id="login_button" onclick="window.location.href='../board/board.html'">
+    <button id="login_button">
         Enter
     </button>
 
+    <p id="loginError" style="color:red;"></p>
 
 </div>
     
+
+<script type="module" src="../login/login.js"></script>
+
 </body>
 </html>
