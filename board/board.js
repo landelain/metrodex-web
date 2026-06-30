@@ -22,12 +22,62 @@ onAuthStateChanged(auth, async (user) => {
     
     const snap = await getDoc(doc(db, "users", user.uid));
     if (snap.exists()) {
-        const data = snap.data();
-        console.log(data["email"]);
-}
+      const data = snap.data();
+      console.log(data["test"]);
+    }
 
   } else {
     // not looged in, kick back to login page
     window.location.href = '../login/login.html';
   }
+});
+
+document.getElementById('paris_button').addEventListener('click', async () => {
+
+  const user = auth.currentUser;
+
+  // console.log("here")
+  // console.log(user)
+  // console.log(user.email)
+
+  if (!user) {
+    console.error("User not ready yet");
+    return;
+  }
+
+  await setDoc(doc(db, "users", user.uid), {
+    
+    city: "paris",
+    
+  }, { merge: true });
+
+  // const snap = await getDoc(doc(db, "users", user.uid));
+  //   if (snap.exists()) {
+  //     const data = snap.data();
+  //     console.log(data["city"]);
+  //   }
+
+  window.location.href = '../main/main.html';
+
+});
+
+
+document.getElementById('lausanne_button').addEventListener('click', async () => {
+
+  const user = auth.currentUser;
+
+  if (!user) {
+    console.error("User not ready yet");
+    return;
+  }
+
+
+  await setDoc(doc(db, "users", user.uid), {
+    
+    city: "lausanne",
+    
+  }, { merge: true });
+  
+  window.location.href = '../main/main.html';
+
 });

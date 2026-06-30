@@ -13,28 +13,3 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
-document.getElementById('login_button').addEventListener('click', async () => {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-
-  try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
-
-    const db = getFirestore(app);
-
-    await setDoc(doc(db, "users", user.uid), {
-    email: user.email,
-    joinedAt: new Date(),
-    test: "salut"
-    }, { merge: true });
-
-    // only redirect AFTER login succeeds
-    window.location.href = 'board/board.html';
-
-  } catch (e) {
-    document.getElementById('loginError').textContent = e.message;
-  }
-});
-
