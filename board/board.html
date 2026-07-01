@@ -11,19 +11,35 @@
 </head>
 <body>
 
-    <div id="city_list">
-        
-        <button class="city_button" id="paris_button">
-            Paris
-        </button>
-        
+    <select name="city" id="city-select">
+        <option value="paris">Paris</option>
+        <option value="lausanne">Lausanne</option>
+    </select>
+    
 
-       <button class="city_button" id="lausanne_button">
-            Lausanne
-        </button>
+    <div id="bottom">
+
+        <div id="arrow"> ^ </div>
+
+        <div id="station-board">
+
+            <div id="line">ligne 8</div> 
+
+            <div id="stations">
+
+            </div>
+
+            <div id="line-arrows">
+
+                <div id="left-arrow" class="small-arrow"></div>
+                <div id="right-arrow"  class="small-arrow"></div>
+            </div>
+
+        </div>
 
     </div>
     
+
     <script type="module" src="../board/board.js"></script>
     
 </body>
