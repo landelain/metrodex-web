@@ -38,9 +38,29 @@ const select = document.getElementById("city-select");
 let city = select.options[select.selectedIndex].value;
 console.log(city)
 
+
+async function loadStations() {
+  try {
+    const response = await fetch('../hard_data/paris.json');
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error('Error loading JSON:', error);
+  }
+}
+
+const hard_data = await loadStations(); // works at top level since your script is type="module"
+
+
+let line_numbers = hard_data.line_numbers;
+let n_lines = line_numbers.length;
+
 select.addEventListener("change", async () => {
   city = select.options[select.selectedIndex].value;
-  console.log(city);
+
+  // fetch data on line numbers for var
+  
 });
 
 
@@ -81,31 +101,29 @@ for (let i = 0 ; i < max_snippets ; i++){
 
 }
 
-let current_line_station_n = 20;
-let current_line = "Ligne 8";
+let current_line = 0;
+let current_line_station_n = hard_data.stations[current_line].length;
 
 function display_n_snippets(n) {
 
   for (let i = 0 ; i < n ; i++){
     stationsnippet[i].style.display = "flex";
     names[i].style.display = "flex";
+    names[i].textContent = hard_data.stations[current_line][i];
     checkboxes[i].style.display = "flex";
   }
-}
-
-function hide_snippets() {
-  for (let i = 0 ; i < max_snippets ; i++){
+  for (let i=n; i < max_snippets ; i++){
     stationsnippet[i].style.display = "none";
     names[i].style.dislay = "none";
     checkboxes[i].style.display = "none";
   }
 }
 
-// display_n_snippets(current_line_station_n);
+
 
 const arrow = document.getElementById("arrow");
-const stationboard = document.getElementById("station-board")
-const line = document.getElementById("line")
+const stationboard = document.getElementById("station-board");
+const line = document.getElementById("line");
 let hidden = true;
 
 arrow.addEventListener("click", async () => {
@@ -113,12 +131,8 @@ arrow.addEventListener("click", async () => {
   if (hidden) {
 
     stationboard.style.display = "flex";
-
-    stations.style.display = "flex";
+    line.textContent = "Ligne " + String(line_numbers[current_line]);
     display_n_snippets(current_line_station_n);
-
-    line.textContent = current_line;
-    line.style.display = "flex";
 
     hidden = false;
 
@@ -129,13 +143,7 @@ arrow.addEventListener("click", async () => {
   } else {
 
     stationboard.style.display = "none";
-
-    stations.style.display = "none";
-    hide_snippets();
-
-
     line.textContent = "";
-    line.style.display = "none";
 
     hidden = true;
 
@@ -144,6 +152,46 @@ arrow.addEventListener("click", async () => {
     arrow.style.transform = "translateY(0%)";
 
   }
+
+});
+
+const leftarrow = document.getElementById("left-arrow");
+const rightarrow = document.getElementById("right-arrow");
+
+leftarrow.textContent = "<";
+rightarrow.textContent = ">";
+
+leftarrow.addEventListener("click", async () => {
+
+  if (current_line == 0){
+    current_line = n_lines-1;
+  }
+  else {
+    current_line = current_line -1;
+  }
+
+  line.textContent = "Ligne " + String(line_numbers[current_line]);
+  current_line_station_n = hard_data.stations[current_line].length;
+  display_n_snippets(current_line_station_n);
+
+  // more changes 
+
+});
+
+rightarrow.addEventListener("click", async () => {
+
+  if (current_line == n_lines-1){
+    current_line = 0;
+  }
+  else {
+    current_line = current_line +1;
+  }
+
+  line.textContent = "Ligne " + String(line_numbers[current_line]);
+  current_line_station_n = hard_data.stations[current_line].length;
+  display_n_snippets(current_line_station_n);
+
+  // more changes 
 
 });
 

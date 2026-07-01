@@ -60,7 +60,7 @@ body {
 
   height: 5%;
   width: 20%;
-  background: #7b7bc4;
+  background-color: #7b7bc4;
   border: none;
   border-radius: 10px;
   transform: translateY(0%);
@@ -73,7 +73,7 @@ body {
 }
 
 #arrow:hover {
-  background: #6b6bb6;
+  background-color: #6b6bb6;
 }
 
 
@@ -94,41 +94,77 @@ body {
 }
 
 
+#line-arrows {
+
+  height: 10dvh;
+  width: 90%;
+  padding: 2%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 1dvh ;
+
+}
+
+.small-arrow {
+
+  height: 5dvh;
+  padding: 3dvh;
+  width: 15dvw;
+  background-color: #6464a4;
+  margin: 2dvw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  font-size: 150%;
+  border: none;
+  border-radius: 10px;
+
+}
+
+.small-arrow:hover {
+  background-color: rgb(77, 77, 131);
+}
+
 #line {
 
   height: 5dvh;
   width: fit-content;
   padding: 5dvw;
+  padding-left: 7dvw;
+  padding-right: 7dvw;
   font-size: 150%;
-  margin-bottom: 5%;
-  background: #6464a4;
+  background-color: #6464a4;
   border: none;
   border-radius: 10px;
   text-align: center;
   align-items: center;    
   justify-content: center;
-  display: none;
+  display: flex;
+  white-space: nowrap;
 
 }
 
 #stations {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   height: fit-content;
   width: 95%;
   flex-direction: column;
-  align-items: center;
+  align-items:baseline;
   overflow-y: auto;
-  display: none;
+  display: flex;
 
 }
 
 .snippet {
 
-  background-color: rgb(169, 245, 37);
+  /* background-color: rgb(169, 245, 37); */
   height: 5dvh;
-  width: 10dvw;
+  width: fit-content;
   margin-bottom: 1dvh;
-  display: none;
+  display: flex;
   flex-direction: row;
   
 
@@ -136,17 +172,18 @@ body {
 
 .name {
 
+  padding-right: 2dvw ;
+  padding-left: 2dvw ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 120%;
+
 }
 
 .checkbox {
 
  display: none;
-}
-
-#line-arrows {
-
-}
-
-.small-arrow {
-
 }

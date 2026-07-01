@@ -1,0 +1,54 @@
+{
+
+    "city" : "paris",
+    "line_numbers" : ["1", "2", "3", "3bis", "4", "5", "6", "7", "7bis", "8", "9", "10", "11", "12", "13", "14"],
+    "stations" : [
+        [
+            "La Défense",
+            "Esplanade de la Défense",
+            "Pont de Neuilly",
+            "Les Sablons",
+            "Porte Maillot",
+            "Argentine",
+            "Charles de Gaulle - Etoile (2,6)",
+            "George V",
+            "Franklin D. Roosevelt (9)",
+            "Champs-Elysées - Clemenceau (13)",
+            "Concorde (8,12)",
+            "Tuileries",
+            "Palais-Royal - Musée du Louvre (7)",
+            "Louvre - Rivoli",
+            "Châtelet (4,7,11,14)",
+            "Hôtel de Ville (11)",
+            "Saint-Paul",
+            "Bastille (5,8)",
+            "Gare de Lyon (14)",
+            "Reuilly - Diderot(8)",
+            "Nation (2,6,9)",
+            "Portes de Vincennes",
+            "Saint-Mandé",
+            "Bérault",
+            "Château de Vincennes"
+        ],
+        [],
+        [],
+        [
+            "Portes des Lilas (11)",
+            "Saint-Fargeau",
+            "Pelleport",
+            "Gambetta (3)"
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ]
+}
