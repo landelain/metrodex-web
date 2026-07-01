@@ -1,7 +1,7 @@
 html {
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 }
 
@@ -33,10 +33,10 @@ body {
 
 #city-select {
 
-  height: fit-content;
+  height: 5dvh;
   width: fit-content;
-  margin: 4%;
-  padding: 2%;
+  margin: 2dvh;
+  padding: 1dvh;
   padding-left: 10%;
   padding-right: 10%;
   background: #9e9ee9;
@@ -48,7 +48,7 @@ body {
 }
 
 #bottom {
-  height: 90%;
+  min-height: 90dvh;
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@ body {
   background: #7b7bc4;
   border: none;
   border-radius: 10px;
-  transform: translateY(20%);
+  transform: translateY(0%);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -79,43 +79,68 @@ body {
 
 #station-board {
 
-  height: 0;
+  height: fit-content;
   width: 80dvw;
   background: #9e9ee9;
   border: none;
   border-radius: 10px;
   bottom: 0%;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0%;
-  padding-top: 0%;
+  padding: 5%;
+  padding-top: 7%;
+  display: none;
 
 }
 
 
 #line {
 
-  height: 10dvh;
+  height: 5dvh;
   width: fit-content;
-  padding: 2%;
+  padding: 5dvw;
   font-size: 150%;
+  margin-bottom: 5%;
+  background: #6464a4;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;    
+  justify-content: center;
+  display: none;
 
 }
 
 #stations {
   background-color: aquamarine;
-  height: 50%;
-  width: 80%;
-  display: flex;
+  height: fit-content;
+  width: 95%;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
+  display: none;
+
 }
 
 .snippet {
 
   background-color: rgb(169, 245, 37);
+  height: 5dvh;
+  width: 10dvw;
+  margin-bottom: 1dvh;
+  display: none;
+  flex-direction: row;
+  
 
+}
+
+.name {
+
+}
+
+.checkbox {
+
+ display: none;
 }
 
 #line-arrows {
