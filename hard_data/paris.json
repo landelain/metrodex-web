@@ -5,14 +5,14 @@
 
     "lines" : {
 
-        "1" : ["LaDef1", "EspDef1", "PonNeu1", "LesSab1", "PorMai1", "Arg1", "CdGEto126", "GeoV1", "FraDRoo19", "ChaElyCle113", "Con812", "Tui1", "PalRoyMusLou17", "LouRiv1", "Cha1471114", "HotVil111", "SaiPau1", "Bast158", "GarLyo114", "ReuDid18", "Nat1269", "PorVin1", "SaiMan1", "Ber1", "ChaVin1"],
+        "1" : ["LaDef1", "EspDef1", "PonNeu1", "LesSab1", "PorMai1", "Arg1", "CdGEto126", "GeoV1", "FraDRoo19", "ChaElyCle113", "Con812", "Tui1", "PalRoyMusLou17", "LouRiv1", "Cha1471114", "HotVil111", "SaiPau1", "Bas158", "GarLyo114", "ReuDid18", "Nat1269", "PorVin1", "SaiMan1", "Ber1", "ChaVin1"],
         "2" : ["PorDau2", "VicHug2", "CdGEto126", "Ter2", "Courc2", "Mon2", "Vil23", "Rom2", "PlaCli213", "Bla2", "Pig212", "Anv2", "BarRoc24", "Cha2", "Sta257", "Jau257b", "ColFab2", "Bel211", "Couro2", "Men2", "PerLac23", "PhiAug2", "AleDum2", "Avr2", "Nat1269"],
         "3" : ["PonLevBec3", "AnaFra3", "LouMic3", "PorCha3", "Per3", "Wag3", "Mal3", "Vil23", "Eur3", "SaiLaz3121314", "HavCau39", "Ope378", "QuaSep3", "Bou3", "Sen3", "ReaSeb34", "ArtMet311", "Tem3", "Rep358911", "Par3", "RueSaiMau3", "PerLac23", "Gam33b", "PorBag3", "Gal3"],
         "3bis" : ["Gam33b", "Pel3b", "SaiFar3b", "PorLil3b11"],
         "4" : ["PorCli4", "Sim4", "MarPoi412", "ChaRou4", "BarRoc24", "GarNor45", "GarEst457", "ChaEau4", "StrSaiDen489", "ReaSeb34", "EtiMar4", "Hal4", "Cha1471114", "Cit4", "SaiMic4", "Ode410", "SaiGerPre4", "SaiSul4", "SaiPla4", "MonBie461213", "Vav4", "Ras46", "DenRoc46", "MouDuv4", "Ale4", "PorOrl4", "MaiMon4", "Bar4", "BagLucAub4"],
-        "5" : [],
-        "6" : [],
-        "7" : [],
+        "5" : ["BobPabPic5", "BobPanRayQue5", "EglPan5", "Hoc5", "PorPan5", "Our5", "Lau5", "Jau257b", "Sta257", "GarNor45", "GarEst457", "JacBon5", "Rep358911", "Obe59", "RicLen5", "BreSab5", "Bas158", "QuaRap5", "GarAus510", "SaiMar5", "CamFor5", "PlaIta567"],
+        "6" : ["CdGEto126", "Kle6", "Boi6", "Tro69", "Pas6", "BirHak6", "Dup6", "MotPicGre6810", "Cam6", "SevLec6", "Pas612", "MonBie461213", "EdgQui6", "Ras46", "DenRoc46", "SaiJac6", "Gla6", "Cor6", "PlaIta567", "Nat6", "Che6", "QuaGar6", "Ber614", "Dug6", "Dau68", "BelAir6", "Pic6", "Nat1269"],
+        "7" : ["Cou7", "ForAub7", "AubPanQuaChe7", "PorVil7", "CorCar7", "Cri7", "Riq7", "Sta257", "LouBla77b", "ChaLan7", "GarEst457", "Poi7", "Cad7", "Pel7", "ChaAntFay79", "Ope378", "Pyr714", "PalRoyMusLou17", "PonNeu7", "Cha1471114", "PonMar7", "SulMor7", "Jus710", "PlaMon7", "CenDau7", "Gob7", "PlaIta567", "Tob7", "MaiBla714", "KreBic7", "VilLeoLag7", "VilPauVaiCou7", "VilLouAra7", "PorIta7", "PorCho7", "PorIvr7", "PieMarCur7", "MaiIvr7"],
         "7bis" : [],
         "8" : [],
         "9" : [],
@@ -127,7 +127,7 @@
             "coords" : ["48 51 19", "2 21 38"]
         },
 
-        "Bast158" : {
+        "Bas158" : {
             "name" : "Bastille",
             "line" : ["1", "5", "8"],
             "coords" : ["48 51 11", "2 22 09"]
@@ -254,7 +254,7 @@
         },
 
         "Sta257" : {
-            "name" : "Anvers",
+            "name" : "Stalingrad",
             "line" : ["2", "5", "7"],
             "coords" : ["48 53 03", "2 21 57"]
         },
@@ -623,9 +623,427 @@
             "name" : "Bagneux - Lucie Aubrac",
             "line" : ["4"],
             "coords" : ["48 48 10", "2 19 02"]
+        },
+
+        "BobPabPic5" : {
+            "name" : "Bobigny - Pablo Picasso",
+            "line" : ["5"],
+            "coords" : ["48 54 24", "2 27 00"]
+        },
+
+        "BobPanRayQue5" : {
+            "name" : "Bobigny - Pantin - Raymond Queneau",
+            "line" : ["5"],
+            "coords" : ["48 53 43", "2 25 30"]
+        },
+
+        "EglPan5" : {
+            "name" : "Eglise de Pantin",
+            "line" : ["5"],
+            "coords" : ["48 53 37", "2 24 47"]
+        },
+
+        "Hoc5" : {
+            "name" : "Hoche",
+            "line" : ["5"],
+            "coords" : ["48 53 29", "2 24 11"]
+        },
+
+        "PorPan5" : {
+            "name" : "Porte de Pantin",
+            "line" : ["5"],
+            "coords" : ["48 53 18", "2 23 31"]
+        },
+
+        "Our5" : {
+            "name" : "Ourcq",
+            "line" : ["5"],
+            "coords" : ["48 53 13", "2 23 09"]
+        },
+
+        "Lau5" : {
+            "name" : "Laumière",
+            "line" : ["5"],
+            "coords" : ["48 53 06", "2 22 43"]
+        },
+
+        "JacBon5" : {
+            "name" : "Jacques Bonsergent",
+            "line" : ["5"],
+            "coords" : ["48 52 16", "2 21 38"]
+        },
+
+        "Obe59" : {
+            "name" : "Oberkampf",
+            "line" : ["5", "9"],
+            "coords" : ["48 51 52", "2 22 08"]
+        },
+
+        "RicLen5" : {
+            "name" : "Richard-Lenoir",
+            "line" : ["5"],
+            "coords" : ["48 51 35", "2 22 19"]
+        },
+
+        "BreSab5" : {
+            "name" : "Bréguet - Sabin",
+            "line" : ["5"],
+            "coords" : ["48 51 22", "2 22 12"]
+        },
+
+        "QuaRap5" : {
+            "name" : "Quaie de la Rapée",
+            "line" : ["5"],
+            "coords" : ["48 50 48", "2 21 57"]
+        },
+
+        "GarAus510" : {
+            "name" : "Gare d'Austerlitz",
+            "line" : ["5", "10"],
+            "coords" : ["48 50 33", "2 21 54"]
+        },
+
+        "SaiMar5" : {
+            "name" : "Saint-Marcel",
+            "line" : ["5"],
+            "coords" : ["48 50 17", "2 21 37"]
+        },
+
+        "CamFor5" : {
+            "name" : "Campo-Formio",
+            "line" : ["5"],
+            "coords" : ["48 50 06", "2 21 29"]
+        },
+
+        "PlaIta567" : {
+            "name" : "Place d'Italie",
+            "line" : ["5", "6", "7"],
+            "coords" : ["48 49 53", "2 21 20"]
+        },
+
+        "Kle6" : {
+            "name" : "Kléber",
+            "line" : ["6"],
+            "coords" : ["48 51 16", "2 17 35"]
+        },
+
+        "Boi6" : {
+            "name" : "Boissière",
+            "line" : ["6"],
+            "coords" : ["48 52 03", "2 17 25"]
+        },
+
+        "Tro69" : {
+            "name" : "Trocadéro",
+            "line" : ["6", "9"],
+            "coords" : ["48 51 48", "2 17 13"]
+        },
+
+        "Pas6" : {
+            "name" : "Passy",
+            "line" : ["6"],
+            "coords" : ["48 51 27", "2 17 09"]
+        },
+
+        "BirHak6" : {
+            "name" : "Bir-Hakeim",
+            "line" : ["6"],
+            "coords" : ["48 51 14", "2 17 22"]
+        },
+
+        "Dup6" : {
+            "name" : "Dupleix",
+            "line" : ["6"],
+            "coords" : ["48 51 01", "2 17 37"]
+        },
+
+        "MotPicGre6810" : {
+            "name" : "La Motte-Picquet - Grenelle",
+            "line" : ["6", "8", "10"],
+            "coords" : ["48 50 57", "2 17 53"]
+        },
+
+        "Cam6" : {
+            "name" : "Cambronne",
+            "line" : ["6"],
+            "coords" : ["48 50 51", "2 18 11"]
+        },
+
+        "SevLec6" : {
+            "name" : "Sèvres - Lecourbe",
+            "line" : ["6"],
+            "coords" : ["48 50 44", "2 18 34"]
+        },
+
+        "Pas612" : {
+            "name" : "Pasteur",
+            "line" : ["6", "12"],
+            "coords" : ["48 50 34", "2 18 46"]
+        },
+
+        "EdgQui6" : {
+            "name" : "Edgar Quinet",
+            "line" : ["6"],
+            "coords" : ["48 50 28", "2 19 30"]
+        },
+
+        "SaiJac6" : {
+            "name" : "Saint-Jacques",
+            "line" : ["6"],
+            "coords" : ["48 49 58", "2 20 13"]
+        },
+
+        "Gla6" : {
+            "name" : "Glacière",
+            "line" : ["6"],
+            "coords" : ["48 49 52", "2 20 36"]
+        },
+
+        "Cor6" : {
+            "name" : "Corvisart",
+            "line" : ["6"],
+            "coords" : ["48 49 47", "2 21 02"]
+        },
+
+        "Nat6" : {
+            "name" : "Nationale",
+            "line" : ["6"],
+            "coords" : ["48 49 59", "2 21 46"]
+        },
+
+        "Che6" : {
+            "name" : "Chevaleret",
+            "line" : ["6"],
+            "coords" : ["48 50 06", "2 22 05"]
+        },
+
+        "QuaGar6" : {
+            "name" : "Quaie de la Gare",
+            "line" : ["6"],
+            "coords" : ["48 50 13", "2 22 22"]
+        },
+
+        "Ber614" : {
+            "name" : "Bercy",
+            "line" : ["6", "14"],
+            "coords" : ["48 50 26", "2 22 46"]
+        },
+
+        "Dug6" : {
+            "name" : "Dugommier",
+            "line" : ["6"],
+            "coords" : ["48 50 21", "2 23 24"]
+        },
+
+        "Dau68" : {
+            "name" : "Daumesnil",
+            "line" : ["6", "8"],
+            "coords" : ["48 50 23", "2 23 45"]
+        },
+
+        "BelAir6" : {
+            "name" : "Bel-Air",
+            "line" : ["6"],
+            "coords" : ["48 50 29", "2 24 03"]
+        },
+
+        "Pic6" : {
+            "name" : "Picpus",
+            "line" : ["6"],
+            "coords" : ["48 50 43", "2 24 02"]
+        },
+
+        "Cou7" : {
+            "name" : "La Courneuve - 8 mai 1945",
+            "line" : ["7"],
+            "coords" : ["48 55 15", "2 24 38"]
+        },
+
+        "ForAub7" : {
+            "name" : "Fort d'Aubervilliers",
+            "line" : ["7"],
+            "coords" : ["48 54 51", "2 24 15"]
+        },
+
+        "AubPanQuaChe7" : {
+            "name" : "Aubervilliers - Pantin - Quatre Chemins",
+            "line" : ["7"],
+            "coords" : ["48 54 14", "2 23 33"]
+        },
+
+        "PorVil7" : {
+            "name" : "Porte de la Villette",
+            "line" : ["7"],
+            "coords" : ["48 53 49", "2 23 09"]
+        },
+
+        "CorCar7" : {
+            "name" : "Corentin Cariou",
+            "line" : ["7"],
+            "coords" : ["48 53 41", "2 22 57"]
+        },
+
+        "Cri7" : {
+            "name" : "Crimée",
+            "line" : ["7"],
+            "coords" : ["48 53 29", "2 22 38"]
+        },
+
+        "Riq7" : {
+            "name" : "Riquet",
+            "line" : ["7"],
+            "coords" : ["48 53 18", "2 22 27"]
+        },
+
+        "LouBla77b" : {
+            "name" : "Louis Blanc",
+            "line" : ["7", "7b"],
+            "coords" : ["48 52 53", "2 21 55"]
+        },
+
+        "ChaLan7" : {
+            "name" : "Château-Landon",
+            "line" : ["7"],
+            "coords" : ["48 52 43", "2 21 43"]
+        },
+
+        "Poi7" : {
+            "name" : "Poissonnière",
+            "line" : ["7"],
+            "coords" : ["48 52 37", "2 20 57"]
+        },
+
+        "Cad7" : {
+            "name" : "Cadet",
+            "line" : ["7"],
+            "coords" : ["48 52 33", "2 20 35"]
+        },
+
+        "Pel7" : {
+            "name" : "Le Peletier",
+            "line" : ["7"],
+            "coords" : ["48 52 30", "2 20 26"]
+        },
+
+        "ChaAntFay79" : {
+            "name" : "Chaussée d'Antin - La Fayette",
+            "line" : ["7", "9"],
+            "coords" : ["48 52 22", "2 20 00"]
+        },
+
+        "Pyr714" : {
+            "name" : "Pyramides",
+            "line" : ["7"],
+            "coords" : ["48 51 59", "2 20 02"]
+        },
+
+        "PonNeu7" : {
+            "name" : "Pont-Neuf",
+            "line" : ["7"],
+            "coords" : ["48 51 31", "2 20 32"]
+        },
+
+        "PonMar7" : {
+            "name" : "Pont Marie",
+            "line" : ["7"],
+            "coords" : ["48 51 13", "2 21 26"]
+        },
+
+        "SulMor7" : {
+            "name" : "Sully - Morland",
+            "line" : ["7"],
+            "coords" : ["48 51 04", "2 21 45"]
+        },
+
+        "Jus710" : {
+            "name" : "Jussieu",
+            "line" : ["7", "10"],
+            "coords" : ["48 50 45", "2 21 17"]
+        },
+
+        "PlaMon7" : {
+            "name" : "Place Monge",
+            "line" : ["7"],
+            "coords" : ["48 50 36", "2 21 09"]
+        },
+
+        "CenDau7" : {
+            "name" : "Censier - Daubanton",
+            "line" : ["7"],
+            "coords" : ["48 50 26", "2 21 06"]
+        },
+
+        "Gob7" : {
+            "name" : "Les Gobelins",
+            "line" : ["7"],
+            "coords" : ["48 50 12", "2 21 07"]
+        },
+
+        "Tob7" : {
+            "name" : "Tolbiac",
+            "line" : ["7"],
+            "coords" : ["48 49 34", "2 21 25"]
+        },
+
+        "MaiBla714" : {
+            "name" : "Maison Blanche",
+            "line" : ["7", "14"],
+            "coords" : ["48 49 20", "2 21 31"]
+        },
+
+        "KreBic7" : {
+            "name" : "Le Kremlin-Bicêtre",
+            "line" : ["7"],
+            "coords" : ["48 48 37", "2 21 43"]
+        },
+
+        "VilLeoLag7" : {
+            "name" : "Villejuif - Léo Lagrange",
+            "line" : ["7"],
+            "coords" : ["48 48 17", "2 21 49"]
+        },
+
+        "VilPauVaiCou7" : {
+            "name" : "Villejuif - Paul Vaillant-Couturier",
+            "line" : ["7"],
+            "coords" : ["48 47 47", "2 20 05"]
+        },
+
+        "VilLouAra7" : {
+            "name" : "Villejuif - Louis Aragon",
+            "line" : ["7"],
+            "coords" : ["48 47 13", "2 22 02"]
+        },
+
+        "PorIta7" : {
+            "name" : "Porte d'Italie",
+            "line" : ["7"],
+            "coords" : ["48 49 09", "2 21 34"]
+        },
+
+        "PorCho7" : {
+            "name" : "Porte de Choisy",
+            "line" : ["7"],
+            "coords" : ["48 49 12", "2 21 52"]
+        },
+
+        "PorIvr7" : {
+            "name" : "Porte d'Ivry",
+            "line" : ["7"],
+            "coords" : ["48 49 18", "2 22 09"]
+        },
+
+        "PieMarCur7" : {
+            "name" : "Pierre et Marie Curie",
+            "line" : ["7"],
+            "coords" : ["48 48 57", "2 22 39"]
+        },
+
+        "MaiIvr7" : {
+            "name" : "Marie d'Ivry",
+            "line" : ["7"],
+            "coords" : ["48 48 40", "2 22 58"]
         }
-
-
     
         
     }
