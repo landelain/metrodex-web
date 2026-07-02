@@ -6,10 +6,10 @@
     "lines" : {
 
         "1" : ["LaDef1", "EspDef1", "PonNeu1", "LesSab1", "PorMai1", "Arg1", "CdGEto126", "GeoV1", "FraDRoo19", "ChaElyCle113", "Con812", "Tui1", "PalRoyMusLou17", "LouRiv1", "Cha1471114", "HotVil111", "SaiPau1", "Bast158", "GarLyo114", "ReuDid18", "Nat1269", "PorVin1", "SaiMan1", "Ber1", "ChaVin1"],
-        "2" : [],
-        "3" : [],
-        "3bis" : [],
-        "4" : [],
+        "2" : ["PorDau2", "VicHug2", "CdGEto126", "Ter2", "Courc2", "Mon2", "Vil23", "Rom2", "PlaCli213", "Bla2", "Pig212", "Anv2", "BarRoc24", "Cha2", "Sta257", "Jau257b", "ColFab2", "Bel211", "Couro2", "Men2", "PerLac23", "PhiAug2", "AleDum2", "Avr2", "Nat1269"],
+        "3" : ["PonLevBec3", "AnaFra3", "LouMic3", "PorCha3", "Per3", "Wag3", "Mal3", "Vil23", "Eur3", "SaiLaz3121314", "HavCau39", "Ope378", "QuaSep3", "Bou3", "Sen3", "ReaSeb34", "ArtMet311", "Tem3", "Rep358911", "Par3", "RueSaiMau3", "PerLac23", "Gam33b", "PorBag3", "Gal3"],
+        "3bis" : ["Gam33b", "Pel3b", "SaiFar3b", "PorLil3b11"],
+        "4" : ["PorCli4", "Sim4", "MarPoi412", "ChaRou4", "BarRoc24", "GarNor45", "GarEst457", "ChaEau4", "StrSaiDen489", "ReaSeb34", "EtiMar4", "Hal4", "Cha1471114", "Cit4", "SaiMic4", "Ode410", "SaiGerPre4", "SaiSul4", "SaiPla4", "MonBie461213", "Vav4", "Ras46", "DenRoc46", "MouDuv4", "Ale4", "PorOrl4", "MaiMon4", "Bar4", "BagLucAub4"],
         "5" : [],
         "6" : [],
         "7" : [],
@@ -173,10 +173,460 @@
             "name" : "Château de Vincennes",
             "line" : ["1"],
             "coords" : ["48 50 40", "2 26 22"]
+        },
+
+        "PorDau2" : {
+            "name" : "Porte Dauphine",
+            "line" : ["2"],
+            "coords" : ["48 52 18", "2 16 36"]
+        },
+
+        "VicHug2" : {
+            "name" : "Victor Hugo",
+            "line" : ["2"],
+            "coords" : ["48 52 11", "2 17 07"]
+        },
+
+        "Ter2" : {
+            "name" : "Ternes",
+            "line" : ["2"],
+            "coords" : ["48 52 41", "2 17 55"]
+        },
+
+        "Courc2" : {
+            "name" : "Courcelles",
+            "line" : ["2"],
+            "coords" : ["48 52 46", "2 18 16"]
+        },
+
+        "Mon2" : {
+            "name" : "Monceau",
+            "line" : ["2"],
+            "coords" : ["48 52 49", "2 18 31"]
+        },
+
+        "Vil23" : {
+            "name" : "Villiers",
+            "line" : ["2", "3"],
+            "coords" : ["48 52 52", "2 18 54"]
+        },
+
+        "Rom2" : {
+            "name" : "Rome",
+            "line" : ["2"],
+            "coords" : ["48 52 57", "2 19 19"]
+        },
+
+        "PlaCli213" : {
+            "name" : "Place de Clichy",
+            "line" : ["2", "13"],
+            "coords" : ["48 53 02", "2 19 39"]
+        },
+
+        "Bla2" : {
+            "name" : "Blanche",
+            "line" : ["2"],
+            "coords" : ["48 53 00", "2 20 01"]
+        },
+
+        "Pig212" : {
+            "name" : "Pigalle",
+            "line" : ["2", "12"],
+            "coords" : ["48 52 56", "2 20 15"]
+        },
+
+        "Anv2" : {
+            "name" : "Anvers",
+            "line" : ["2"],
+            "coords" : ["48 52 59", "2 20 41"]
+        },
+
+        "BarRoc24" : {
+            "name" : "Barbès - Rochechouart",
+            "line" : ["2", "4"],
+            "coords" : ["48 53 01", "2 21 02"]
+        },
+
+        "Cha2" : {
+            "name" : "La Chapelle",
+            "line" : ["2"],
+            "coords" : ["48 53 04", "2 21 37"]
+        },
+
+        "Sta257" : {
+            "name" : "Anvers",
+            "line" : ["2", "5", "7"],
+            "coords" : ["48 53 03", "2 21 57"]
+        },
+
+        "Jau257b" : {
+            "name" : "Jaurès",
+            "line" : ["2", "5", "7bis"],
+            "coords" : ["48 52 54", "2 22 13"]
+        },
+
+        "ColFab2" : {
+            "name" : "Colonel Fabien",
+            "line" : ["2"],
+            "coords" : ["48 52 38", "2 22 16"]
+        },
+
+        "Bel211" : {
+            "name" : "Belleville",
+            "line" : ["2", "11"],
+            "coords" : ["48 52 19", "2 22 37"]
+        },
+
+        "Couro2" : {
+            "name" : "Couronnes",
+            "line" : ["2"],
+            "coords" : ["48 52 10", "2 22 47"]
+        },
+
+        "Men2" : {
+            "name" : "Ménilmontant",
+            "line" : ["2"],
+            "coords" : ["48 51 58", "2 23 01"]
+        },
+
+        "PerLac23" : {
+            "name" : "Père Lachaise",
+            "line" : ["2", "3"],
+            "coords" : ["48 51 47", "2 23 15"]
+        },
+
+        "PhiAug2" : {
+            "name" : "Philippe Auguste",
+            "line" : ["2"],
+            "coords" : ["48 51 29", "2 23 27"]
+        },
+
+        "AleDum2" : {
+            "name" : "Alexandre Dumas",
+            "line" : ["2"],
+            "coords" : ["48 51 22", "2 23 42"]
+        },
+
+        "Avr2" : {
+            "name" : "Avron",
+            "line" : ["2"],
+            "coords" : ["48 51 07", "2 23 52"]
+        },
+
+        "PonLevBec3" : {
+            "name" : "Pont de Levallois - Bécon",
+            "line" : ["3"],
+            "coords" : ["48 53 50", "2 16 51"]
+        },
+
+        "AnaFra3" : {
+            "name" : "Anatole France",
+            "line" : ["3"],
+            "coords" : ["48 53 31", "2 17 08"]
+        },
+
+        "LouMic3" : {
+            "name" : "Louise Michel",
+            "line" : ["3"],
+            "coords" : ["48 53 20", "2 27 27"]
+        },
+
+        "PorCha3" : {
+            "name" : "Porte de Champerret",
+            "line" : ["3"],
+            "coords" : ["48 53 09", "2 17 37"]
+        },
+
+        "Per3" : {
+            "name" : "Pereire",
+            "line" : ["3"],
+            "coords" : ["48 53 05", "2 17 57"]
+        },
+
+        "Wag3" : {
+            "name" : "Wagram",
+            "line" : ["3"],
+            "coords" : ["48 53 03", "2 18 13"]
+        },
+
+        "Mal3" : {
+            "name" : "Malesherbes",
+            "line" : ["3"],
+            "coords" : ["48 52 57", "2 18 40"]
+        },
+
+        "Eur3" : {
+            "name" : "Europe",
+            "line" : ["3"],
+            "coords" : ["48 52 44", "2 19 21"]
+        },
+
+        "SaiLaz3121314" : {
+            "name" : "Saint-Lazare",
+            "line" : ["3", "12", "13", "14"],
+            "coords" : ["48 52 32", "2 19 34"]
+        },
+
+        "HavCau39" : {
+            "name" : "Havre - Caumartin",
+            "line" : ["3", "9"],
+            "coords" : ["48 52 25", "2 19 42"]
+        },
+
+        "Ope378" : {
+            "name" : "Opéra",
+            "line" : ["3", "7", "8"],
+            "coords" : ["48 52 14", "2 19 56"]
+        },
+
+        "QuaSep3" : {
+            "name" : "Quatre-Septembre",
+            "line" : ["3"],
+            "coords" : ["48 52 10", "2 20 12"]
+        },
+
+        "Bou3" : {
+            "name" : "Bourse",
+            "line" : ["3"],
+            "coords" : ["48 52 07", "2 20 29"]
+        },
+
+        "Sen3" : {
+            "name" : "Sentier",
+            "line" : ["3"],
+            "coords" : ["48 52 03", "2 20 47"]
+        },
+        
+        "ReaSeb34" : {
+            "name" : "Réaumur - Sébastopol",
+            "line" : ["3", "4"],
+            "coords" : ["48 51 58", "2 21 09"]
+        },
+
+        "ArtMet311" : {
+            "name" : "Arts et Métiers",
+            "line" : ["3", "11"],
+            "coords" : ["48 51 56", "2 21 22"]
+        },
+
+        "Tem3" : {
+            "name" : "Temple",
+            "line" : ["3"],
+            "coords" : ["48 51 59", "2 21 38"]
+        },
+
+        "Rep358911" : {
+            "name" : "République",
+            "line" : ["3", "5", "8", "9", "11"],
+            "coords" : ["48 52 03", "2 21 50"]
+        },
+
+        "Par3" : {
+            "name" : "Parmentier",
+            "line" : ["3"],
+            "coords" : ["48 51 55", "2 22 28"]
+        },
+
+        "RueSaiMau3" : {
+            "name" : "Rue Saint-Maur",
+            "line" : ["3"],
+            "coords" : ["48 51 52", "2 22 46"]
+        },
+
+        "Gam33b" : {
+            "name" : "Gambetta",
+            "line" : ["3", "3bis"],
+            "coords" : ["48 51 54", "2 23 54"]
+        },
+
+        "PorBag3" : {
+            "name" : "Porte de Bagnolet",
+            "line" : ["3"],
+            "coords" : ["48 51 52", "2 24 26"]
+        },
+
+        "Gal3" : {
+            "name" : "Gallieni",
+            "line" : ["3"],
+            "coords" : ["48 51 54", "2 25 00"]
+        },
+
+        "Pel3b" : {
+            "name" : "Pelleport",
+            "line" : ["3b"],
+            "coords" : ["48 52 07", "2 24 06"]
+        },
+
+        "SaiFar3b" : {
+            "name" : "Saint-Fargeau",
+            "line" : ["3b"],
+            "coords" : ["48 52 19", "2 24 16"]
+        },
+
+        "PorLil3b11" : {
+            "name" : "Porte des Lilas",
+            "line" : ["3b", "11"],
+            "coords" : ["48 52 38", "2 24 24"]
+        },
+
+        "PorCli4" : {
+            "name" : "Porte de Clignancourt",
+            "line" : ["4"],
+            "coords" : ["48 53 50", "2 20 41"]
+        },
+
+        "Sim4" : {
+            "name" : "Simplon",
+            "line" : ["4"],
+            "coords" : ["48 53 41", "2 20 50"]
+        },
+
+        "MarPoi412" : {
+            "name" : "Marcadet - Poissonniers",
+            "line" : ["4", "12"],
+            "coords" : ["48 53 29", "2 20 59"]
+        },
+
+        "ChaRou4" : {
+            "name" : "Château Rouge",
+            "line" : ["4"],
+            "coords" : ["48 53 14", "2 20 58"]
+        },
+
+        "GarNor45" : {
+            "name" : "Gare du Nord",
+            "line" : ["4", "5"],
+            "coords" : ["48 52 49", "2 21 18"]
+        },
+
+        "GarEst457" : {
+            "name" : "Gare de l'Est",
+            "line" : ["4", "5", "7"],
+            "coords" : ["48 52 34", "2 21 29"]
+        },
+
+        "ChaEau4" : {
+            "name" : "Château d'Eau",
+            "line" : ["4"],
+            "coords" : ["48 52 21", "2 21 21"]
+        },
+
+        "StrSaiDen489" : {
+            "name" : "Strasbourg - Saint-Denis",
+            "line" : ["4", "8", "9"],
+            "coords" : ["48 52 10", "2 21 15"]
+        },
+
+        "EtiMar4" : {
+            "name" : "Etienne Marcel",
+            "line" : ["4"],
+            "coords" : ["48 51 50", "2 20 57"]
+        },
+
+        "Hal4" : {
+            "name" : "Les Halles",
+            "line" : ["4"],
+            "coords" : ["48 51 45", "2 20 46"]
+        },
+
+        "Cit4" : {
+            "name" : "Cité",
+            "line" : ["4"],
+            "coords" : ["48 51 21", "2 20 46"]
+        },
+
+        "SaiMic4" : {
+            "name" : "Saint-Michel",
+            "line" : ["4"],
+            "coords" : ["48 51 13", "2 20 38"]
+        },
+
+        "Ode410" : {
+            "name" : "Odéon",
+            "line" : ["4", "10"],
+            "coords" : ["48 51 08", "2 20 20"]
+        },
+
+        "SaiGerPre4" : {
+            "name" : "Saint-Germain-des-Prés",
+            "line" : ["4"],
+            "coords" : ["48 51 14", "2 20 00"]
+        },
+
+        "SaiSul4" : {
+            "name" : "Saint-Sulpice",
+            "line" : ["4"],
+            "coords" : ["48 51 05", "2 19 52"]
+        },
+
+        "SaiPla4" : {
+            "name" : "Saint-Placide",
+            "line" : ["4"],
+            "coords" : ["48 50 49", "2 19 37"]
+        },
+
+        "MonBie461213" : {
+            "name" : "Montparnasse - Bienvenüe",
+            "line" : ["4", "6", "12", "13"],
+            "coords" : ["48 50 36", "2 19 23"]
+        },
+
+        "Vav4" : {
+            "name" : "Vavin",
+            "line" : ["4"],
+            "coords" : ["48 50 32", "2 19 46"]
+        },
+
+        "Ras46" : {
+            "name" : "Raspail",
+            "line" : ["4", "6"],
+            "coords" : ["48 50 20", "2 19 51"]
+        },
+
+        "DenRoc46" : {
+            "name" : "Denfert-Rochereau",
+            "line" : ["4", "6"],
+            "coords" : ["48 50 02", "2 19 57"]
+        },
+
+        "MouDuv4" : {
+            "name" : "Mouton-Duvernet",
+            "line" : ["4"],
+            "coords" : ["48 49 56", "2 19 49"]
+        },
+
+        "Ale4" : {
+            "name" : "Alésia",
+            "line" : ["4"],
+            "coords" : ["48 49 42", "2 19 37"]
+        },
+
+        "PorOrl4" : {
+            "name" : "Porte d'Orléans",
+            "line" : ["4"],
+            "coords" : ["48 49 23", "2 19 33"]
+        },
+
+        "MaiMon4" : {
+            "name" : "Marie de Montrouge",
+            "line" : ["4"],
+            "coords" : ["48 49 06", "2 19 10"]
+        },
+
+        "Bar4" : {
+            "name" : "Barbara",
+            "line" : ["4"],
+            "coords" : ["48 48 33", "2 19 04"]
+        },
+
+        "BagLucAub4" : {
+            "name" : "Bagneux - Lucie Aubrac",
+            "line" : ["4"],
+            "coords" : ["48 48 10", "2 19 02"]
         }
 
 
-
+    
         
     }
 }

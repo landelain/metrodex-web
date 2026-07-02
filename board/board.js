@@ -123,7 +123,7 @@ function display_n_snippets(n) {
 }
 
 
-
+const bottom = document.getElementById("bottom");
 const arrow = document.getElementById("arrow");
 const stationboard = document.getElementById("station-board");
 const line = document.getElementById("line");
@@ -133,6 +133,7 @@ arrow.addEventListener("click", async () => {
 
   if (hidden) {
 
+    bottom.style.justifyContent = "flex-start";
     stationboard.style.display = "flex";
     line.textContent = "Ligne " + String(line_numbers[current_line]);
     display_n_snippets(current_line_station_n);
@@ -145,6 +146,7 @@ arrow.addEventListener("click", async () => {
 
   } else {
 
+    bottom.style.justifyContent = "flex-end";
     stationboard.style.display = "none";
     line.textContent = "";
 
