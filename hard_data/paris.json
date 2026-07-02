@@ -2,158 +2,181 @@
 
     "city" : "paris",
     "line_numbers" : ["1", "2", "3", "3bis", "4", "5", "6", "7", "7bis", "8", "9", "10", "11", "12", "13", "14"],
-    "stations" : [
-        [ 
-            "La Défense",
-            "Esplanade de la Défense",
-            "Pont de Neuilly",
-            "Les Sablons",
-            "Porte Maillot",
-            "Argentine",
-            "Charles de Gaulle - Etoile (2,6)",
-            "George V",
-            "Franklin D. Roosevelt (9)",
-            "Champs-Elysées - Clemenceau (13)",
-            "Concorde (8,12)",
-            "Tuileries",
-            "Palais-Royal - Musée du Louvre (7)",
-            "Louvre - Rivoli",
-            "Châtelet (4,7,11,14)",
-            "Hôtel de Ville (11)",
-            "Saint-Paul",
-            "Bastille (5,8)",
-            "Gare de Lyon (14)",
-            "Reuilly - Diderot(8)",
-            "Nation (2,6,9)",
-            "Portes de Vincennes",
-            "Saint-Mandé",
-            "Bérault",
-            "Château de Vincennes"
-        ],
-        [
-            "Porte Dauphine",
-            "Victor Hugo",
-            "Charles de Gaulle - Etoiles (1,6)",
-            "Ternes",
-            "Courcelles",
-            "Monceau",
-            "Villiers (3)",
-            "Rome",
-            "Place de Clichy (13)",
-            "Blanche",
-            "Pigalle (12)",
-            "Anvers",
-            "Barbès-Rochechouart (4)",
-            "La Chapelle",
-            "Stalingrad (5,7)",
-            "Jaurès (5,7bis)",
-            "Colonel Fabien",
-            "Belleville (11)",
-            "Couronnes",
-            "Ménilmontant",
-            "Père Lachaise (3)",
-            "Philippe Auguste",
-            "Alexandre Dumas",
-            "Avron",
-            "Nation"
-        ],
-        [
-            "Pont de Levallois - Bécon",
-            "Anatole France",
-            "Louise Michel",
-            "Porte de Champerret",
-            "Pereire",
-            "Wagram",
-            "Malesherbes",
-            "Villiers (2)",
-            "Europe",
-            "Saint-Lazare (12,13,14)",
-            "Havre - Caumartin (9)",
-            "Opéra (7,8)",
-            "Quatre-Septembre",
-            "Bourse",
-            "Sentier",
-            "Réaumur - Sébastopol (4)",
-            "Arts et Métiers (11)",
-            "Temple",
-            "République (5,8,9,11)",
-            "Parmentier",
-            "Rue Saint-Maur",
-            "Père Lachaise (2)",
-            "Gambetta (3bis)",
-            "Porte de Bagnolet",
-            "Gallieni"
-        ],
-        [
-            "Portes des Lilas (11)",
-            "Saint-Fargeau",
-            "Pelleport",
-            "Gambetta (3)"
-        ],
-        [
-            "Porte de Clignancourt",
-            "Simplon",
-            "Marcadet - Poissonniers (12)",
-            "Château Rouge",
-            "Barbès - Rochechouart (2)",
-            "Gare du Nord (5)",
-            "Gare de l'Est (5,7)",
-            "Château d'Eau",
-            "Strasbourg - Saint-Denis (8,9)",
-            "Réaumur - Sébastopol (3)",
-            "Etienne Marcel",
-            "Les Halles",
-            "Châtelet (1,7,11,14)",
-            "Cité",
-            "Saint-Michel",
-            "Odéon (10)",
-            "Saint-Germain-des-Prés",
-            "Saint-Sulpice",
-            "Saint-Placide",
-            "Montparnasse - Bienvenüe (6,12,13)",
-            "Vavin",
-            "Raspail (6)",
-            "Denfert-Rochereau (6)",
-            "Mouton-Duvernet",
-            "Alésia",
-            "Porte d'Orléans",
-            "Marie de Montrouge",
-            "Barbara",
-            "Bagneux - Lucie Aubrac"
-        ],
-        [
-            "Bobigny - Pablo Picasso",
-            "Bobigny - Pantin - Raymond Queneau",
-            "Eglise de Pantin",
-            "Hoche",
-            "Porte de Pantin",
-            "Ourcq",
-            "Laumière",
-            "Jaurès (2,7bis)",
-            "Stalingrad (2,7)",
-            "Gare du Nord (4)",
-            "Gare de l'Est (4,7)",
-            "Jacques Bonsergent",
-            "République (3,8,9,11)",
-            "Oberkampf (9)",
-            "Richard-Lenoir",
-            "Bréguet - Sabin",
-            "Bastille (1,8)",
-            "Quaie de la Rapée",
-            "Gare d'Austerlitz (10)",
-            "Saint-Marcel",
-            "Campo-Formio",
-            "Place d'Italie (6,7)"
-        ],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        []
-    ]
+
+    "lines" : {
+
+        "1" : ["LaDef1", "EspDef1", "PonNeu1", "LesSab1", "PorMai1", "Arg1", "CdGEto126", "GeoV1", "FraDRoo19", "ChaElyCle113", "Con812", "Tui1", "PalRoyMusLou17", "LouRiv1", "Cha1471114", "HotVil111", "SaiPau1", "Bast158", "GarLyo114", "ReuDid18", "Nat1269", "PorVin1", "SaiMan1", "Ber1", "ChaVin1"],
+        "2" : [],
+        "3" : [],
+        "3bis" : [],
+        "4" : [],
+        "5" : [],
+        "6" : [],
+        "7" : [],
+        "7bis" : [],
+        "8" : [],
+        "9" : [],
+        "10" : [],
+        "11" : [],
+        "12" : [],
+        "13" : [],
+        "14" : []
+    },
+
+    "stations" : {
+
+        "LaDef1" : {
+            "name" : "La Défense",
+            "line" : ["1"],
+            "coords" : ["48 53 31", "2 14 16"]
+        },
+
+        "EspDef1" : {
+            "name" : "Esplanade de la Défense",
+            "line" : ["1"],
+            "coords" : ["48 53 16", "2 15 02"]
+        },
+
+        "PonNeu1" : {
+            "name" : "Pont de Neuilly",
+            "line" : ["1"],
+            "coords" : ["48 53 04", "2 15 36"]
+        },
+
+        "LesSab1" : {
+            "name" : "Les Sablons",
+            "line" : ["1"],
+            "coords" : ["48 52 51", "2 16 21"]
+        },
+
+        "PorMai1" : {
+            "name" : "Porte Maillot",
+            "line" : ["1"],
+            "coords" : ["48 52 41", "2 16 55"]
+        },
+
+        "Arg1" : {
+            "name" : "Argentine",
+            "line" : ["1"],
+            "coords" : ["48 52 32", "2 17 22"]
+        },
+
+        "CdGEto126" : {
+            "name" : "Charles de Gaulle - Etoile",
+            "line" : ["1", "2", "6"],
+            "coords" : ["48 52 28", "2 17 45"]
+        },
+
+        "GeoV1" : {
+            "name" : "George V",
+            "line" : ["1"],
+            "coords" : ["48 52 19", "2 18 02"]
+        },
+
+        "FraDRoo19" : {
+            "name" : "Franklin D. Roosevelt",
+            "line" : ["1", "9"],
+            "coords" : ["48 52 09", "2 18 30"]
+        },
+
+        "ChaElyCle113" : {
+            "name" : "Champs-Elysées - Clemenceau",
+            "line" : ["1", "13"],
+            "coords" : ["48 52 03", "2 18 50"]
+        },
+
+        "Con812" : {
+            "name" : "Argentine",
+            "line" : ["1", "8", "12"],
+            "coords" : ["48 51 58", "2 19 21"]
+        },
+
+        "Tui1" : {
+            "name" : "Tuileries",
+            "line" : ["1"],
+            "coords" : ["48 51 52", "2 19 49"]
+        },
+
+        "PalRoyMusLou17" : {
+            "name" : "Palais-Royal - Musée du Louvre",
+            "line" : ["1", "7"],
+            "coords" : ["48 51 46", "2 20 09"]
+        },
+
+        "LouRiv1" : {
+            "name" : "Louvre - Rivoli",
+            "line" : ["1"],
+            "coords" : ["48 51 40", "2 20 25"]
+        },
+
+        "Cha1471114" : {
+            "name" : "Châtelet",
+            "line" : ["1", "4", "7", "11", "14"],
+            "coords" : ["48 51 31", "2 20 50"]
+        },
+
+        "HotVil111" : {
+            "name" : "Hôtel de Ville",
+            "line" : ["1", "11"],
+            "coords" : ["48 51 25", "2 21 05"]
+        },
+
+        "SaiPau1" : {
+            "name" : "Saint-Paul",
+            "line" : ["1"],
+            "coords" : ["48 51 19", "2 21 38"]
+        },
+
+        "Bast158" : {
+            "name" : "Bastille",
+            "line" : ["1", "5", "8"],
+            "coords" : ["48 51 11", "2 22 09"]
+        },
+
+        "GarLyo114" : {
+            "name" : "Gare de Lyon",
+            "line" : ["1", "14"],
+            "coords" : ["48 50 41", "2 22 27"]
+        },
+
+        "ReuDid18" : {
+            "name" : "Reuilly - Diderot",
+            "line" : ["1", "8"],
+            "coords" : ["48 50 50", "2 23 12"]
+        },
+
+        "Nat1269" : {
+            "name" : "Nation",
+            "line" : ["1", "2", "6", "9"],
+            "coords" : ["48 50 54", "2 23 45"]
+        },
+
+        "PorVin1" : {
+            "name" : "Porte de Vincennes",
+            "line" : ["1"],
+            "coords" : ["48 50 50", "2 24 32"]
+        },
+
+        "SaiMan1" : {
+            "name" : "Saint-Mandé",
+            "line" : ["1"],
+            "coords" : ["48 50 47", "2 25 07"]
+        },
+
+        "Ber1" : {
+            "name" : "Bérault",
+            "line" : ["1"],
+            "coords" : ["48 50 43", "2 25 45"]
+        },
+
+        "ChaVin1" : {
+            "name" : "Château de Vincennes",
+            "line" : ["1"],
+            "coords" : ["48 50 40", "2 26 22"]
+        }
+
+
+
+        
+    }
 }

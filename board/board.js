@@ -53,8 +53,10 @@ async function loadStations() {
 const hard_data = await loadStations(); // works at top level since your script is type="module"
 
 
-let line_numbers = hard_data.line_numbers;
-let n_lines = line_numbers.length;
+const line_numbers = hard_data.line_numbers;
+const lines = hard_data.lines;
+const stations_names = hard_data.stations;
+const n_lines = line_numbers.length;
 
 select.addEventListener("change", async () => {
   city = select.options[select.selectedIndex].value;
@@ -102,14 +104,15 @@ for (let i = 0 ; i < max_snippets ; i++){
 }
 
 let current_line = 0;
-let current_line_station_n = hard_data.stations[current_line].length;
+let current_line_stations =  lines[line_numbers[current_line]];
+let current_line_station_n = current_line_stations.length;
 
 function display_n_snippets(n) {
 
   for (let i = 0 ; i < n ; i++){
     stationsnippet[i].style.display = "flex";
     names[i].style.display = "flex";
-    names[i].textContent = hard_data.stations[current_line][i];
+    names[i].textContent = stations_names[current_line_stations[i]]["name"];
     checkboxes[i].style.display = "flex";
   }
   for (let i=n; i < max_snippets ; i++){
@@ -171,7 +174,8 @@ leftarrow.addEventListener("click", async () => {
   }
 
   line.textContent = "Ligne " + String(line_numbers[current_line]);
-  current_line_station_n = hard_data.stations[current_line].length;
+  current_line_stations =  lines[line_numbers[current_line]];
+  current_line_station_n = current_line_stations.length;
   display_n_snippets(current_line_station_n);
 
   // more changes 
@@ -188,7 +192,8 @@ rightarrow.addEventListener("click", async () => {
   }
 
   line.textContent = "Ligne " + String(line_numbers[current_line]);
-  current_line_station_n = hard_data.stations[current_line].length;
+  current_line_stations =  lines[line_numbers[current_line]];
+  current_line_station_n = lines[line_numbers[current_line]].length;
   display_n_snippets(current_line_station_n);
 
   // more changes 
