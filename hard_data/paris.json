@@ -5,7 +5,7 @@
 
     "lines" : {
 
-        "1" : ["LaDef1", "EspDef1", "PonNeu1", "LesSab1", "PorMai1", "Arg1", "CdGEto126", "GeoV1", "FraDRoo19", "ChaElyCle113", "Con812", "Tui1", "PalRoyMusLou17", "LouRiv1", "Cha1471114", "HotVil111", "SaiPau1", "Bas158", "GarLyo114", "ReuDid18", "Nat1269", "PorVin1", "SaiMan1", "Ber1", "ChaVin1"],
+        "1" : ["LaDef1", "EspDef1", "PonNeu1", "LesSab1", "PorMai1", "Arg1", "CdGEto126", "GeoV1", "FraDRoo19", "ChaElyCle113", "Con1812", "Tui1", "PalRoyMusLou17", "LouRiv1", "Cha1471114", "HotVil111", "SaiPau1", "Bas158", "GarLyo114", "ReuDid18", "Nat1269", "PorVin1", "SaiMan1", "Ber1", "ChaVin1"],
         "2" : ["PorDau2", "VicHug2", "CdGEto126", "Ter2", "Courc2", "Mon2", "Vil23", "Rom2", "PlaCli213", "Bla2", "Pig212", "Anv2", "BarRoc24", "Cha2", "Sta257", "Jau257b", "ColFab2", "Bel211", "Couro2", "Men2", "PerLac23", "PhiAug2", "AleDum2", "Avr2", "Nat1269"],
         "3" : ["PonLevBec3", "AnaFra3", "LouMic3", "PorCha3", "Per3", "Wag3", "Mal3", "Vil23", "Eur3", "SaiLaz3121314", "HavCau39", "Ope378", "QuaSep3", "Bou3", "Sen3", "ReaSeb34", "ArtMet311", "Tem3", "Rep358911", "Par3", "RueSaiMau3", "PerLac23", "Gam33b", "PorBag3", "Gal3"],
         "3bis" : ["Gam33b", "Pel3b", "SaiFar3b", "PorLil3b11"],
@@ -13,8 +13,8 @@
         "5" : ["BobPabPic5", "BobPanRayQue5", "EglPan5", "Hoc5", "PorPan5", "Our5", "Lau5", "Jau257b", "Sta257", "GarNor45", "GarEst457", "JacBon5", "Rep358911", "Obe59", "RicLen5", "BreSab5", "Bas158", "QuaRap5", "GarAus510", "SaiMar5", "CamFor5", "PlaIta567"],
         "6" : ["CdGEto126", "Kle6", "Boi6", "Tro69", "Pas6", "BirHak6", "Dup6", "MotPicGre6810", "Cam6", "SevLec6", "Pas612", "MonBie461213", "EdgQui6", "Ras46", "DenRoc46", "SaiJac6", "Gla6", "Cor6", "PlaIta567", "Nat6", "Che6", "QuaGar6", "Ber614", "Dug6", "Dau68", "BelAir6", "Pic6", "Nat1269"],
         "7" : ["Cou7", "ForAub7", "AubPanQuaChe7", "PorVil7", "CorCar7", "Cri7", "Riq7", "Sta257", "LouBla77b", "ChaLan7", "GarEst457", "Poi7", "Cad7", "Pel7", "ChaAntFay79", "Ope378", "Pyr714", "PalRoyMusLou17", "PonNeu7", "Cha1471114", "PonMar7", "SulMor7", "Jus710", "PlaMon7", "CenDau7", "Gob7", "PlaIta567", "Tob7", "MaiBla714", "KreBic7", "VilLeoLag7", "VilPauVaiCou7", "VilLouAra7", "PorIta7", "PorCho7", "PorIvr7", "PieMarCur7", "MaiIvr7"],
-        "7bis" : [],
-        "8" : [],
+        "7bis" : ["LouBla77b", "Jau257b", "Bol7b", "ButCha7b", "Bot7b", "Dan7b", "PlaFet7b11", "PreSaiGer7b"],
+        "8" : ["Bal8", "Lou8", "Bou8", "FelFau8", "Com8", "MotPicGre6810", "EcoMil8", "TouMau8", "Inv813", "Con1812", "Mad81214", "Ope378", "RicDro89", "GraBou89", "BonNou89", "StrSaiDen489", "Rep358911", "FilCal8", "SaiSebFro8", "CheVer8", "Bas158", "LedRol8", "FaiCha8", "ReuDid18", "Mon8", "Dau68", "MicBiz8", "PorDor8", "PorCha8", "Lib8", "ChaEco8", "EcoVetMaiAlf8", "MaiAlfSta8", "MaiAlfJui8", "CreEch8", "CreUni8", "CrePre8", "PoiLac8"],
         "9" : [],
         "10" : [],
         "11" : [],
@@ -85,8 +85,8 @@
             "coords" : ["48 52 03", "2 18 50"]
         },
 
-        "Con812" : {
-            "name" : "Argentine",
+        "Con1812" : {
+            "name" : "Concorde",
             "line" : ["1", "8", "12"],
             "coords" : ["48 51 58", "2 19 21"]
         },
@@ -1043,6 +1043,222 @@
             "name" : "Marie d'Ivry",
             "line" : ["7"],
             "coords" : ["48 48 40", "2 22 58"]
+        },
+
+        "Bol7b" : {
+            "name" : "Bolivar",
+            "line" : ["7bis"],
+            "coords" : ["48 52 50", "2 22 30"]
+        },
+
+        "ButCha7b" : {
+            "name" : "Buttes Chaumont",
+            "line" : ["7bis"],
+            "coords" : ["48 52 43", "2 22 54"]
+        },
+
+        "Bot7b" : {
+            "name" : "Botzaris",
+            "line" : ["7bis"],
+            "coords" : ["48 52 46", "2 23 17"]
+        },
+
+        "Dan7b" : {
+            "name" : "Danube",
+            "line" : ["7bis"],
+            "coords" : ["48 52 55", "2 23 39"]
+        },
+
+        "PlaFet7b11" : {
+            "name" : "Bolivar",
+            "line" : ["7bis", "11"],
+            "coords" : ["48 52 37", "2 23 35"]
+        },
+
+        "PreSaiGer7b" : {
+            "name" : "Pré-Saint-Gervais",
+            "line" : ["7bis"],
+            "coords" : ["48 52 49", "2 23 56"]
+        },
+
+        "Bal8" : {
+            "name" : "Balard",
+            "line" : ["8"],
+            "coords" : ["48 50 11", "2 16 42"]
+        },
+
+        "Lou8" : {
+            "name" : "Lourmel",
+            "line" : ["8"],
+            "coords" : ["48 50 19", "2 16 55"]
+        },
+
+        "Bou8" : {
+            "name" : "Boucicaut",
+            "line" : ["8"],
+            "coords" : ["48 50 28", "2 17 16"]
+        },
+
+        "FelFau8" : {
+            "name" : "Félix Faure",
+            "line" : ["8"],
+            "coords" : ["48 50 32", "2 17 28"]
+        },
+
+        "Com8" : {
+            "name" : "Commerce",
+            "line" : ["8"],
+            "coords" : ["48 50 42", "2 17 39"]
+        },
+
+        "EcoMil8" : {
+            "name" : "Ecole Militaire",
+            "line" : ["8"],
+            "coords" : ["48 51 18", "2 18 24"]
+        },
+
+        "TouMau8" : {
+            "name" : "La Tour-Maubourg",
+            "line" : ["8"],
+            "coords" : ["48 51 28", "2 18 37"]
+        },
+
+        "Inv813" : {
+            "name" : "Invalides",
+            "line" : ["8", "13"],
+            "coords" : ["48 51 39", "2 18 52"]
+        },
+
+        "Mad81214" : {
+            "name" : "Madeleine",
+            "line" : ["8", "12", "14"],
+            "coords" : ["48 52 12", "2 19 31"]
+        },
+
+        "RicDro89" : {
+            "name" : "Richelieu - Drouot",
+            "line" : ["8", "9"],
+            "coords" : ["48 52 19", "2 20 19"]
+        },
+
+        "GraBou89" : {
+            "name" : "Grands Boulevards",
+            "line" : ["8", "9"],
+            "coords" : ["48 52 17", "2 20 40"]
+        },
+
+        "BonNou89" : {
+            "name" : "Bonne-Nouvelle",
+            "line" : ["8", "9"],
+            "coords" : ["48 52 14", "2 20 56"]
+        },
+
+        "FilCal8" : {
+            "name" : "Filles du Calvaire",
+            "line" : ["8"],
+            "coords" : ["48 51 51", "2 21 58"]
+        },
+
+        "SaiSebFro8" : {
+            "name" : "Saint-Sébastien - Froissart",
+            "line" : ["8"],
+            "coords" : ["48 51 38", "2 22 02"]
+        },
+
+        "CheVer8" : {
+            "name" : "Chemin Vert",
+            "line" : ["8"],
+            "coords" : ["48 51 24", "2 22 06"]
+        },
+
+        "LedRol8" : {
+            "name" : "Ledru-Rollin",
+            "line" : ["8"],
+            "coords" : ["48 51 05", "2 22 34"]
+        },
+
+        "FaiCha8" : {
+            "name" : "Faidherbe - Chaligny",
+            "line" : ["8"],
+            "coords" : ["48 51 01", "2 23 00"]
+        },
+
+        "Mon8" : {
+            "name" : "Montgallet",
+            "line" : ["8"],
+            "coords" : ["48 50 39", "2 23 24"]
+        },
+
+        "MicBiz8" : {
+            "name" : "Michel Bizot",
+            "line" : ["8"],
+            "coords" : ["48 50 15", "2 24 04"]
+        },
+
+        "PorDor8" : {
+            "name" : "Porte Dorée",
+            "line" : ["8"],
+            "coords" : ["48 50 08", "2 24 22"]
+        },
+
+        "PorCha8" : {
+            "name" : "Porte de Charenton",
+            "line" : ["8"],
+            "coords" : ["48 49 58", "2 24 01"]
+        },
+
+        "Lib8" : {
+            "name" : "Liberté",
+            "line" : ["8"],
+            "coords" : ["48 49 33", "2 24 25"]
+        },
+
+        "ChaEco8" : {
+            "name" : "Charenton - Ecoles",
+            "line" : ["8"],
+            "coords" : ["48 49 17", "2 24 50"]
+        },
+
+        "EcoVetMaiAlf8" : {
+            "name" : "Ecole vétérinaire de Maisons-Alfort",
+            "line" : ["8"],
+            "coords" : ["48 48 55", "2 25 19"]
+        },
+
+        "MaiAlfSta8" : {
+            "name" : "Maisons-Alfort - Stade",
+            "line" : ["8"],
+            "coords" : ["48 48 31", "2 26 10"]
+        },
+
+        "MaiAlfJui8" : {
+            "name" : "Maisons-Alfort - Les Juilliottes",
+            "line" : ["8"],
+            "coords" : ["48 48 09", "2 26 47"]
+        },
+
+        "CreEch8" : {
+            "name" : "Créteil - L'Echat",
+            "line" : ["8"],
+            "coords" : ["48 47 45", "2 26 58"]
+        },
+
+        "CreUni8" : {
+            "name" : "Créteil - Université",
+            "line" : ["8"],
+            "coords" : ["48 47 23", "2 27 03"]
+        },
+
+        "CrePre8" : {
+            "name" : "Créteil - Préfecture",
+            "line" : ["8"],
+            "coords" : ["48 46 47", "2 27 34"]
+        },
+
+        "PoiLac8" : {
+            "name" : "Pointe du Lac",
+            "line" : ["8"],
+            "coords" : ["48 46 08", "2 27 53"]
         }
     
         
