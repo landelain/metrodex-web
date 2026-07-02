@@ -15,7 +15,7 @@
         "7" : ["Cou7", "ForAub7", "AubPanQuaChe7", "PorVil7", "CorCar7", "Cri7", "Riq7", "Sta257", "LouBla77b", "ChaLan7", "GarEst457", "Poi7", "Cad7", "Pel7", "ChaAntFay79", "Ope378", "Pyr714", "PalRoyMusLou17", "PonNeu7", "Cha1471114", "PonMar7", "SulMor7", "Jus710", "PlaMon7", "CenDau7", "Gob7", "PlaIta567", "Tob7", "MaiBla714", "KreBic7", "VilLeoLag7", "VilPauVaiCou7", "VilLouAra7", "PorIta7", "PorCho7", "PorIvr7", "PieMarCur7", "MaiIvr7"],
         "7bis" : ["LouBla77b", "Jau257b", "Bol7b", "ButCha7b", "Bot7b", "Dan7b", "PlaFet7b11", "PreSaiGer7b"],
         "8" : ["Bal8", "Lou8", "Bou8", "FelFau8", "Com8", "MotPicGre6810", "EcoMil8", "TouMau8", "Inv813", "Con1812", "Mad81214", "Ope378", "RicDro89", "GraBou89", "BonNou89", "StrSaiDen489", "Rep358911", "FilCal8", "SaiSebFro8", "CheVer8", "Bas158", "LedRol8", "FaiCha8", "ReuDid18", "Mon8", "Dau68", "MicBiz8", "PorDor8", "PorCha8", "Lib8", "ChaEco8", "EcoVetMaiAlf8", "MaiAlfSta8", "MaiAlfJui8", "CreEch8", "CreUni8", "CrePre8", "PoiLac8"],
-        "9" : [],
+        "9" : ["PonSev9", "Bil9", "MarSem9", "PorSaiClo9", "Exe9", "MicAngMol910", "MicAngAut910", "Jas9", "Ran9", "Mue9", "RuePom9", "Tro69", "Ien9", "AlmMar9", "FraDRoo19", "SaiPhiRou9", "Mir913", "SaiAug914", "HavCau39", "ChaAntFay79", "RicDro89", "GraBou89", "BonNou89", "StrSaiDen489", "Rep358911", "Obe59", "SaiAmb9", "Vol9", "Cha9", "RueBou9", "Nat1269", "Buz9", "Mar9", "PorMon9", "Rob9", "CroCha9", "MaiMon9"],
         "10" : [],
         "11" : [],
         "12" : [],
@@ -1259,6 +1259,162 @@
             "name" : "Pointe du Lac",
             "line" : ["8"],
             "coords" : ["48 46 08", "2 27 53"]
+        },
+
+        "PonSev9" : {
+            "name" : "Pont de Sèvres",
+            "line" : ["9"],
+            "coords" : ["48 49 47", "2 13 52"]
+        },
+
+        "Bil9" : {
+            "name" : "Billancourt",
+            "line" : ["9"],
+            "coords" : ["48 49 56", "2 14 17"]
+        },
+
+        "MarSem9" : {
+            "name" : "Marcel Sembat",
+            "line" : ["9"],
+            "coords" : ["48 50 01", "2 14 37"]
+        },
+
+        "PorSaiClo9" : {
+            "name" : "Porte de Saint-Cloud",
+            "line" : ["9"],
+            "coords" : ["48 50 17", "2 15 25"]
+        },
+
+        "Exe9" : {
+            "name" : "Exelmans",
+            "line" : ["9"],
+            "coords" : ["48 50 33", "2 15 34"]
+        },
+
+        "MicAngMol910" : {
+            "name" : "Michel-Ange - Molitor",
+            "line" : ["9", "10"],
+            "coords" : ["48 50 42", "2 15 40"]
+        },
+
+        "MicAngAut910" : {
+            "name" : "Michel-Ange - Auteuil",
+            "line" : ["9", "10"],
+            "coords" : ["48 50 52", "2 15 50"]
+        },
+
+        "Jas9" : {
+            "name" : "Jasmin",
+            "line" : ["9"],
+            "coords" : ["48 51 07", "2 16 04"]
+        },
+
+        "Ran9" : {
+            "name" : "Ranelagh",
+            "line" : ["9"],
+            "coords" : ["48 51 18", "2 16 11"]
+        },
+
+        "Mue9" : {
+            "name" : "La Muette",
+            "line" : ["9"],
+            "coords" : ["48 51 28", "2 16 25"]
+        },
+
+        "RuePom9" : {
+            "name" : "Rue de la Pompe",
+            "line" : ["9"],
+            "coords" : ["48 51 50", "2 16 45"]
+        },
+
+        "Ien9" : {
+            "name" : "Iéna",
+            "line" : ["9"],
+            "coords" : ["48 51 52", "2 17 36"]
+        },
+
+        "AlmMar9" : {
+            "name" : "Alma - Marceau",
+            "line" : ["9"],
+            "coords" : ["48 51 54", "2 18 01"]
+        },
+
+        "SaiPhiRou9" : {
+            "name" : "Saint-Philippe du Roule",
+            "line" : ["9"],
+            "coords" : ["48 52 19", "2 18 36"]
+        },
+
+        "Mir913" : {
+            "name" : "Miromesnil",
+            "line" : ["9", "13"],
+            "coords" : ["48 52 25", "2 18 52"]
+        },
+
+        "SaiAug914" : {
+            "name" : "Saint-Augustin",
+            "line" : ["9", "14"],
+            "coords" : ["48 52 28", "2 19 20"]
+        },
+
+        "SaiAmb9" : {
+            "name" : "Saint-Ambroise",
+            "line" : ["9"],
+            "coords" : ["48 51 41", "2 22 27"]
+        },
+
+        "Vol9" : {
+            "name" : "Voltaire",
+            "line" : ["9"],
+            "coords" : ["48 51 28", "2 22 48"]
+        },
+
+        "Cha9" : {
+            "name" : "Charonne",
+            "line" : ["9"],
+            "coords" : ["48 51 18", "2 23 05"]
+        },
+
+        "RueBou9" : {
+            "name" : "Rue des Boulets",
+            "line" : ["9"],
+            "coords" : ["48 51 07", "2 23 25"]
+        },
+
+        "Buz9" : {
+            "name" : "Buzenval",
+            "line" : ["9"],
+            "coords" : ["48 51 07", "2 24 07"]
+        },
+
+        "Mar9" : {
+            "name" : "Maraîchers",
+            "line" : ["9"],
+            "coords" : ["48 51 10", "2 24 25"]
+        },
+
+        "PorMon9" : {
+            "name" : "Porte de Montreuil",
+            "line" : ["9"],
+            "coords" : ["48 51 14", "2 24 44"]
+        },
+
+        "Rob9" : {
+            "name" : "Robespierre",
+            "line" : ["9"],
+            "coords" : ["48 51 20", "2 25 25"]
+        },
+
+        "CroCha9" : {
+            "name" : "Croix de Chavaux",
+            "line" : ["9"],
+            "coords" : ["48 51 29", "2 26 09"]
+        },
+
+        "MaiMon9" : {
+            "name" : "Mairie de Montreuil",
+            "line" : ["9"],
+            "coords" : ["48 51 44", "2 26 31"]
         }
     
         
