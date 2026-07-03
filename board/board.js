@@ -152,9 +152,9 @@ function colorchange(){
 
   stationboard.style.backgroundColor = current_line_color;
 
-  leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
-  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
-  line.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
+  leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
+  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
+  line.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
 
 }
 
@@ -213,7 +213,7 @@ leftarrow.addEventListener("click", async () => {
   }
 
   changelinearrow();
-  leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.5);
+  leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
 
   // more changes 
 
@@ -229,28 +229,27 @@ rightarrow.addEventListener("click", async () => {
   }
 
   changelinearrow();
-  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.5);
+  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
 
   // more changes 
 
 });
 
-arrow.addEventListener
 
 leftarrow.addEventListener("mouseover", async () => {
-  leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.5);
-});
-
-leftarrow.addEventListener("mouseout", async () => {
   leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
 });
 
+leftarrow.addEventListener("mouseout", async () => {
+  leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
+});
+
 rightarrow.addEventListener("mouseover", async () => {
-  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.5);
+  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
 });
 
 rightarrow.addEventListener("mouseout", async () => {
-  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
+  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
 });
 
 
