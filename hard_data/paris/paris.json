@@ -5,22 +5,102 @@
 
     "lines" : {
 
-        "1" : ["LaDef1", "EspDef1", "PonNeu1", "LesSab1", "PorMai1", "Arg1", "CdGEto126", "GeoV1", "FraDRoo19", "ChaElyCle113", "Con1812", "Tui1", "PalRoyMusLou17", "LouRiv1", "Cha1471114", "HotVil111", "SaiPau1", "Bas158", "GarLyo114", "ReuDid18", "Nat1269", "PorVin1", "SaiMan1", "Ber1", "ChaVin1"],
-        "2" : ["PorDau2", "VicHug2", "CdGEto126", "Ter2", "Courc2", "Mon2", "Vil23", "Rom2", "PlaCli213", "Bla2", "Pig212", "Anv2", "BarRoc24", "Cha2", "Sta257", "Jau257b", "ColFab2", "Bel211", "Couro2", "Men2", "PerLac23", "PhiAug2", "AleDum2", "Avr2", "Nat1269"],
-        "3" : ["PonLevBec3", "AnaFra3", "LouMic3", "PorCha3", "Per3", "Wag3", "Mal3", "Vil23", "Eur3", "SaiLaz3121314", "HavCau39", "Ope378", "QuaSep3", "Bou3", "Sen3", "ReaSeb34", "ArtMet311", "Tem3", "Rep358911", "Par3", "RueSaiMau3", "PerLac23", "Gam33b", "PorBag3", "Gal3"],
-        "3bis" : ["Gam33b", "Pel3b", "SaiFar3b", "PorLil3b11"],
-        "4" : ["PorCli4", "Sim4", "MarPoi412", "ChaRou4", "BarRoc24", "GarNor45", "GarEst457", "ChaEau4", "StrSaiDen489", "ReaSeb34", "EtiMar4", "Hal4", "Cha1471114", "Cit4", "SaiMic4", "Ode410", "SaiGerPre4", "SaiSul4", "SaiPla4", "MonBie461213", "Vav4", "Ras46", "DenRoc46", "MouDuv4", "Ale4", "PorOrl4", "MaiMon4", "Bar4", "BagLucAub4"],
-        "5" : ["BobPabPic5", "BobPanRayQue5", "EglPan5", "Hoc5", "PorPan5", "Our5", "Lau5", "Jau257b", "Sta257", "GarNor45", "GarEst457", "JacBon5", "Rep358911", "Obe59", "RicLen5", "BreSab5", "Bas158", "QuaRap5", "GarAus510", "SaiMar5", "CamFor5", "PlaIta567"],
-        "6" : ["CdGEto126", "Kle6", "Boi6", "Tro69", "Pas6", "BirHak6", "Dup6", "MotPicGre6810", "Cam6", "SevLec6", "Pas612", "MonBie461213", "EdgQui6", "Ras46", "DenRoc46", "SaiJac6", "Gla6", "Cor6", "PlaIta567", "Nat6", "Che6", "QuaGar6", "Ber614", "Dug6", "Dau68", "BelAir6", "Pic6", "Nat1269"],
-        "7" : ["Cou7", "ForAub7", "AubPanQuaChe7", "PorVil7", "CorCar7", "Cri7", "Riq7", "Sta257", "LouBla77b", "ChaLan7", "GarEst457", "Poi7", "Cad7", "Pel7", "ChaAntFay79", "Ope378", "Pyr714", "PalRoyMusLou17", "PonNeu7", "Cha1471114", "PonMar7", "SulMor7", "Jus710", "PlaMon7", "CenDau7", "Gob7", "PlaIta567", "Tob7", "MaiBla714", "KreBic7", "VilLeoLag7", "VilPauVaiCou7", "VilLouAra7", "PorIta7", "PorCho7", "PorIvr7", "PieMarCur7", "MaiIvr7"],
-        "7bis" : ["LouBla77b", "Jau257b", "Bol7b", "ButCha7b", "Bot7b", "Dan7b", "PlaFet7b11", "PreSaiGer7b"],
-        "8" : ["Bal8", "Lou8", "Bou8", "FelFau8", "Com8", "MotPicGre6810", "EcoMil8", "TouMau8", "Inv813", "Con1812", "Mad81214", "Ope378", "RicDro89", "GraBou89", "BonNou89", "StrSaiDen489", "Rep358911", "FilCal8", "SaiSebFro8", "CheVer8", "Bas158", "LedRol8", "FaiCha8", "ReuDid18", "Mon8", "Dau68", "MicBiz8", "PorDor8", "PorCha8", "Lib8", "ChaEco8", "EcoVetMaiAlf8", "MaiAlfSta8", "MaiAlfJui8", "CreEch8", "CreUni8", "CrePre8", "PoiLac8"],
-        "9" : ["PonSev9", "Bil9", "MarSem9", "PorSaiClo9", "Exe9", "MicAngMol910", "MicAngAut910", "Jas9", "Ran9", "Mue9", "RuePom9", "Tro69", "Ien9", "AlmMar9", "FraDRoo19", "SaiPhiRou9", "Mir913", "SaiAug9", "HavCau39", "ChaAntFay79", "RicDro89", "GraBou89", "BonNou89", "StrSaiDen489", "Rep358911", "Obe59", "SaiAmb9", "Vol9", "Cha9", "RueBou9", "Nat1269", "Buz9", "Mar9", "PorMon9", "Rob9", "CroCha9", "MaiMon9"],
-        "10" : ["BouPonSaiClo10", "BouJeaJau10", "PorAut10", "MicAngMol910", "MicAngAut910", "ChaLag10", "EglAut10", "Mir10", "JavAndCit10", "ChaMic10", "AveEmiZol10", "MotPicGre6810", "Seg10", "Dur1013", "Van10", "SevBab1012", "Mab10", "Ode410", "CluSor10", "MauMut10", "CarLem10", "Jus710", "GarAus510"],
-        "11" : ["Cha1471114", "HotVil111", "Ram11", "ArtMet311", "Rep358911", "Gon11", "Bel211", "Pyr11", "Jou11", "PlaFet7b11", "Tel11", "PorLil3b11", "MaiLil11", "SerGai11", "RomCar11", "MonHop11", "Dhu11", "CotBea11", "RosBoiPer11"],
-        "12" : ["MaiAub12", "AimCes12", "FroPop12", "PorCha12", "MarDor12", "MarPoi412", "JulJof12", "LamCau12", "Abb12", "Pig212", "SaiGeo12", "NotDamLor12", "TriEstOrv12", "SaiLaz3121314", "Mad81214", "Con1812", "AssNat12", "Sol12", "RueBac12", "SevBab1012", "Ren12", "NotDamCha12", "MonBie461213", "Fal12", "Pas612", "Vol12", "Vau12", "Con12", "PorVer12", "CorCel12", "MaiIss12"],
-        "13" : ["Cou13", "Agn13", "GabPer13", "MaiCli13", "PorCli1314", "Bro13", "SaiDenUni13", "BasSaiDen13", "SaiDenPorPar13", "CarPle1314", "MaiSaiOue1314", "Gar13", "PorSaiOue13", "GuyMoq13", "Fou13", "PlaCli213", "Lie13", "SaiLaz3121314", "Mir913", "ChaElyCle113", "Inv813", "Var13", "SaiFraXav13", "Dur1013", "MonBie461213", "Gai13", "Per13", "Pla13", "PorVan13", "MalPlaVan13", "MalRueEtiDol13", "ChaMon13"],
-        "14" : ["SaiDenPle14", "MaiSaiOue1314", "SaiOue14", "PorCli1314", "PonCar14", "SaiLaz3121314", "Mad81214", "Pyr714", "Cha1471114", "GarLyo114", "Ber614", "CouSaiEmi14", "BibFraMit14", "Oly14", "MaiBla714", "HopBic14", "VilGusRou14", "HayRos14", "CheLar14", "ThiOrl14", "AerOrl14"]
+        "1" : {
+            "stations" : ["LaDef1", "EspDef1", "PonNeu1", "LesSab1", "PorMai1", "Arg1", "CdGEto126", "GeoV1", "FraDRoo19", "ChaElyCle113", "Con1812", "Tui1", "PalRoyMusLou17", "LouRiv1", "Cha1471114", "HotVil111", "SaiPau1", "Bas158", "GarLyo114", "ReuDid18", "Nat1269", "PorVin1", "SaiMan1", "Ber1", "ChaVin1"],
+            "color" : "rgb(247, 208, 70)",
+            "img_path" : ""
+        },
+
+        "2" : {
+            "stations" : ["PorDau2", "VicHug2", "CdGEto126", "Ter2", "Courc2", "Mon2", "Vil23", "Rom2", "PlaCli213", "Bla2", "Pig212", "Anv2", "BarRoc24", "Cha2", "Sta257", "Jau257b", "ColFab2", "Bel211", "Couro2", "Men2", "PerLac23", "PhiAug2", "AleDum2", "Avr2", "Nat1269"],
+            "color" : "rgb(41, 98, 170)",
+            "img_path" : ""
+        },
+
+        "3" : {
+            "stations" : ["PonLevBec3", "AnaFra3", "LouMic3", "PorCha3", "Per3", "Wag3", "Mal3", "Vil23", "Eur3", "SaiLaz3121314", "HavCau39", "Ope378", "QuaSep3", "Bou3", "Sen3", "ReaSeb34", "ArtMet311", "Tem3", "Rep358911", "Par3", "RueSaiMau3", "PerLac23", "Gam33b", "PorBag3", "Gal3"],
+            "color" : "rgb(158, 152, 60)",
+            "img_path" : ""
+        },
+
+        "3bis" : {
+            "stations" : ["Gam33b", "Pel3b", "SaiFar3b", "PorLil3b11"],
+            "color" : "rgb(165, 210, 224)",
+            "img_path" : ""
+        },
+
+        "4" : {
+            "stations" : ["PorCli4", "Sim4", "MarPoi412", "ChaRou4", "BarRoc24", "GarNor45", "GarEst457", "ChaEau4", "StrSaiDen489", "ReaSeb34", "EtiMar4", "Hal4", "Cha1471114", "Cit4", "SaiMic4", "Ode410", "SaiGerPre4", "SaiSul4", "SaiPla4", "MonBie461213", "Vav4", "Ras46", "DenRoc46", "MouDuv4", "Ale4", "PorOrl4", "MaiMon4", "Bar4", "BagLucAub4"],
+            "color" : "rgb(178, 74, 142)",
+            "img_path" : ""
+        },
+
+        "5" : {
+            "stations" : ["BobPabPic5", "BobPanRayQue5", "EglPan5", "Hoc5", "PorPan5", "Our5", "Lau5", "Jau257b", "Sta257", "GarNor45", "GarEst457", "JacBon5", "Rep358911", "Obe59", "RicLen5", "BreSab5", "Bas158", "QuaRap5", "GarAus510", "SaiMar5", "CamFor5", "PlaIta567"],
+            "color" : "rgb(228, 147, 82)",
+            "img_path" : ""
+        },
+
+        "6" : {
+            "stations" : ["CdGEto126", "Kle6", "Boi6", "Tro69", "Pas6", "BirHak6", "Dup6", "MotPicGre6810", "Cam6", "SevLec6", "Pas612", "MonBie461213", "EdgQui6", "Ras46", "DenRoc46", "SaiJac6", "Gla6", "Cor6", "PlaIta567", "Nat6", "Che6", "QuaGar6", "Ber614", "Dug6", "Dau68", "BelAir6", "Pic6", "Nat1269"],
+            "color" : "rgb(145, 194, 149)",
+            "img_path" : ""
+        },
+
+        "7" : {
+            "stations" : ["Cou7", "ForAub7", "AubPanQuaChe7", "PorVil7", "CorCar7", "Cri7", "Riq7", "Sta257", "LouBla77b", "ChaLan7", "GarEst457", "Poi7", "Cad7", "Pel7", "ChaAntFay79", "Ope378", "Pyr714", "PalRoyMusLou17", "PonNeu7", "Cha1471114", "PonMar7", "SulMor7", "Jus710", "PlaMon7", "CenDau7", "Gob7", "PlaIta567", "Tob7", "MaiBla714", "KreBic7", "VilLeoLag7", "VilPauVaiCou7", "VilLouAra7", "PorIta7", "PorCho7", "PorIvr7", "PieMarCur7", "MaiIvr7"],
+            "color" : "rgb(231, 167, 186)",
+            "img_path" : ""
+        },
+        
+        "7bis" : {
+            "stations" : ["LouBla77b", "Jau257b", "Bol7b", "ButCha7b", "Bot7b", "Dan7b", "PlaFet7b11", "PreSaiGer7b"],
+            "color" : "rgb(145, 194, 149)",
+            "img_path" : ""
+        },
+            
+        "8" : {
+            "stations" : ["Bal8", "Lou8", "Bou8", "FelFau8", "Com8", "MotPicGre6810", "EcoMil8", "TouMau8", "Inv813", "Con1812", "Mad81214", "Ope378", "RicDro89", "GraBou89", "BonNou89", "StrSaiDen489", "Rep358911", "FilCal8", "SaiSebFro8", "CheVer8", "Bas158", "LedRol8", "FaiCha8", "ReuDid18", "Mon8", "Dau68", "MicBiz8", "PorDor8", "PorCha8", "Lib8", "ChaEco8", "EcoVetMaiAlf8", "MaiAlfSta8", "MaiAlfJui8", "CreEch8", "CreUni8", "CrePre8", "PoiLac8"],
+            "color" : "rgb(201, 174, 208)",
+            "img_path" : ""
+        },
+           
+        "9" : {
+            "stations" : ["PonSev9", "Bil9", "MarSem9", "PorSaiClo9", "Exe9", "MicAngMol910", "MicAngAut910", "Jas9", "Ran9", "Mue9", "RuePom9", "Tro69", "Ien9", "AlmMar9", "FraDRoo19", "SaiPhiRou9", "Mir913", "SaiAug9", "HavCau39", "ChaAntFay79", "RicDro89", "GraBou89", "BonNou89", "StrSaiDen489", "Rep358911", "Obe59", "SaiAmb9", "Vol9", "Cha9", "RueBou9", "Nat1269", "Buz9", "Mar9", "PorMon9", "Rob9", "CroCha9", "MaiMon9"],
+            "color" : "rgb(211, 201, 65)",
+            "img_path" : ""
+        },
+            
+        "10" : {
+            "stations" : ["BouPonSaiClo10", "BouJeaJau10", "PorAut10", "MicAngMol910", "MicAngAut910", "ChaLag10", "EglAut10", "Mir10", "JavAndCit10", "ChaMic10", "AveEmiZol10", "MotPicGre6810", "Seg10", "Dur1013", "Van10", "SevBab1012", "Mab10", "Ode410", "CluSor10", "MauMut10", "CarLem10", "Jus710", "GarAus510"],
+            "color" : "rgb(220, 181, 73)",
+            "img_path" : ""
+        },
+            
+        "11" : {
+            "stations" : ["Cha1471114", "HotVil111", "Ram11", "ArtMet311", "Rep358911", "Gon11", "Bel211", "Pyr11", "Jou11", "PlaFet7b11", "Tel11", "PorLil3b11", "MaiLil11", "SerGai11", "RomCar11", "MonHop11", "Dhu11", "CotBea11", "RosBoiPer11"],
+            "color" : "rgb(134, 96, 52)",
+            "img_path" : ""
+        },
+            
+        "12" : {
+            "stations" : ["MaiAub12", "AimCes12", "FroPop12", "PorCha12", "MarDor12", "MarPoi412", "JulJof12", "LamCau12", "Abb12", "Pig212", "SaiGeo12", "NotDamLor12", "TriEstOrv12", "SaiLaz3121314", "Mad81214", "Con1812", "AssNat12", "Sol12", "RueBac12", "SevBab1012", "Ren12", "NotDamCha12", "MonBie461213", "Fal12", "Pas612", "Vol12", "Vau12", "Con12", "PorVer12", "CorCel12", "MaiIss12"],
+            "color" : "rgb(56, 127, 83)",
+            "img_path" : ""
+        },
+            
+        "13" : {
+            "stations" : ["Cou13", "Agn13", "GabPer13", "MaiCli13", "PorCli1314", "Bro13", "SaiDenUni13", "BasSaiDen13", "SaiDenPorPar13", "CarPle1314", "MaiSaiOue1314", "Gar13", "PorSaiOue13", "GuyMoq13", "Fou13", "PlaCli213", "Lie13", "SaiLaz3121314", "Mir913", "ChaElyCle113", "Inv813", "Var13", "SaiFraXav13", "Dur1013", "MonBie461213", "Gai13", "Per13", "Pla13", "PorVan13", "MalPlaVan13", "MalRueEtiDol13", "ChaMon13"],
+            "color" : "rgb(165, 210, 224)",
+            "img_path" : ""
+        },
+            
+        "14" : {
+            "stations" :["SaiDenPle14", "MaiSaiOue1314", "SaiOue14", "PorCli1314", "PonCar14", "SaiLaz3121314", "Mad81214", "Pyr714", "Cha1471114", "GarLyo114", "Ber614", "CouSaiEmi14", "BibFraMit14", "Oly14", "MaiBla714", "HopBic14", "VilGusRou14", "HayRos14", "CheLar14", "ThiOrl14", "AerOrl14"],
+            "color" : "rgb(94, 40, 126)",
+            "img_path" : ""
+        }
+
     },
 
     "stations" : {

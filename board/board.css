@@ -39,7 +39,7 @@ body {
   padding: 1dvh;
   padding-left: 10%;
   padding-right: 10%;
-  background: #9e9ee9;
+  background-color: #9e9ee9;
   border: none;
   border-radius: 10px;
   font-size: 100%;
@@ -124,10 +124,6 @@ body {
 
 }
 
-.small-arrow:hover {
-  background-color: rgb(77, 77, 131);
-}
-
 #line {
 
   height: 5dvh;
@@ -148,7 +144,6 @@ body {
 }
 
 #stations {
-  /* background-color: aquamarine; */
   height: fit-content;
   width: 95%;
   flex-direction: column;

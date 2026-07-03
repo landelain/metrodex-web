@@ -41,7 +41,7 @@ console.log(city)
 
 async function loadStations() {
   try {
-    const response = await fetch('../hard_data/paris.json');
+    const response = await fetch('../hard_data/paris/paris.json');
     const data = await response.json();
     console.log(data);
     return data;
@@ -104,8 +104,9 @@ for (let i = 0 ; i < max_snippets ; i++){
 }
 
 let current_line = 0;
-let current_line_stations =  lines[line_numbers[current_line]];
+let current_line_stations =  lines[line_numbers[current_line]]["stations"];
 let current_line_station_n = current_line_stations.length;
+let current_line_color = lines[line_numbers[current_line]]["color"];
 
 function display_n_snippets(n) {
 
@@ -128,6 +129,36 @@ const arrow = document.getElementById("arrow");
 const stationboard = document.getElementById("station-board");
 const line = document.getElementById("line");
 let hidden = true;
+
+const leftarrow = document.getElementById("left-arrow");
+const rightarrow = document.getElementById("right-arrow");
+
+leftarrow.textContent = "<";
+rightarrow.textContent = ">";
+
+
+function changecolorrgb(rgbString, factor = 0.8) {
+  const parts = rgbString.match(/[\d.]+/g).map(Number);
+  const [r, g, b] = parts;
+
+  const newR = Math.round(r * factor);
+  const newG = Math.round(g * factor);
+  const newB = Math.round(b * factor);
+
+  return `rgb(${newR}, ${newG}, ${newB})`;
+}
+
+function colorchange(){
+
+  stationboard.style.backgroundColor = current_line_color;
+
+  leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
+  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
+  line.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
+
+}
+
+colorchange();
 
 arrow.addEventListener("click", async () => {
 
@@ -160,11 +191,17 @@ arrow.addEventListener("click", async () => {
 
 });
 
-const leftarrow = document.getElementById("left-arrow");
-const rightarrow = document.getElementById("right-arrow");
+function changelinearrow(){
 
-leftarrow.textContent = "<";
-rightarrow.textContent = ">";
+  line.textContent = "Ligne " + String(line_numbers[current_line]);
+  current_line_stations =  lines[line_numbers[current_line]]["stations"];
+  current_line_station_n = current_line_stations.length;
+  display_n_snippets(current_line_station_n);
+
+  current_line_color = lines[line_numbers[current_line]]["color"];
+  colorchange();
+
+}
 
 leftarrow.addEventListener("click", async () => {
 
@@ -175,10 +212,8 @@ leftarrow.addEventListener("click", async () => {
     current_line = current_line -1;
   }
 
-  line.textContent = "Ligne " + String(line_numbers[current_line]);
-  current_line_stations =  lines[line_numbers[current_line]];
-  current_line_station_n = current_line_stations.length;
-  display_n_snippets(current_line_station_n);
+  changelinearrow();
+  leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.5);
 
   // more changes 
 
@@ -193,14 +228,32 @@ rightarrow.addEventListener("click", async () => {
     current_line = current_line +1;
   }
 
-  line.textContent = "Ligne " + String(line_numbers[current_line]);
-  current_line_stations =  lines[line_numbers[current_line]];
-  current_line_station_n = lines[line_numbers[current_line]].length;
-  display_n_snippets(current_line_station_n);
+  changelinearrow();
+  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.5);
 
   // more changes 
 
 });
+
+arrow.addEventListener
+
+leftarrow.addEventListener("mouseover", async () => {
+  leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.5);
+});
+
+leftarrow.addEventListener("mouseout", async () => {
+  leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
+});
+
+rightarrow.addEventListener("mouseover", async () => {
+  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.5);
+});
+
+rightarrow.addEventListener("mouseout", async () => {
+  rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
+});
+
+
 
 
 
