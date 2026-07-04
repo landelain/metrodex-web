@@ -35,43 +35,43 @@ onAuthStateChanged(auth, async (user) => {
 
 const select = document.getElementById("city-select");
 let city = select.options[select.selectedIndex].value;
-console.log(city)
 
 
 async function loadStations() {
   try {
     const response = await fetch('../hard_data/paris/paris.json');
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error('Error loading JSON:', error);
   }
 }
 
-const hard_data = await loadStations(); // works at top level since your script is type="module"
+let hard_data = await loadStations(); // works at top level since your script is type="module"
 
+
+
+function dmsToDecimal(dmsString) {
+  const [degrees, minutes, seconds] = dmsString.split(' ').map(Number);
+  return degrees + minutes / 60 + seconds / 3600;
+}
 
 const database = new Object();
 for (let i = 0 ; i <  Object.keys(hard_data.stations).length ; i ++) {
   const stationid = Object.keys(hard_data.stations)[i];
-  database[stationid] = {"passed" : false, "been" : false};
+  const stationname = hard_data.stations[stationid]["name"];
+  let [lat, long] = hard_data.stations[stationid]["coords"];
+  lat = dmsToDecimal(lat);
+  long = dmsToDecimal(long);
+
+  database[stationid] = {"passed" : false, "been" : false, "name" : stationname, "lat" : lat, "long" : long};
 }
 
 
-const line_numbers = hard_data.line_numbers;
-const lines = hard_data.lines;
-const stations_names = hard_data.stations;
-const n_lines = line_numbers.length;
-
-select.addEventListener("change", async () => {
-  city = select.options[select.selectedIndex].value;
-
-  // fetch data on line numbers for var
-  
-});
-
-
+let line_numbers = hard_data.line_numbers;
+let lines = hard_data.lines;
+let stations_names = hard_data.stations;
+let n_lines = line_numbers.length;
 
 
 
@@ -122,6 +122,27 @@ let current_line = 0;
 let current_line_stations =  lines[line_numbers[current_line]]["stations"];
 let current_line_station_n = current_line_stations.length;
 let current_line_color = lines[line_numbers[current_line]]["color"];
+
+
+
+
+select.addEventListener("change", async () => {
+  city = select.options[select.selectedIndex].value;
+
+  hard_data = await loadStations();
+
+  line_numbers = hard_data.line_numbers;
+  lines = hard_data.lines;
+  stations_names = hard_data.stations;
+  n_lines = line_numbers.length;
+
+  current_line = 0;
+  current_line_stations =  lines[line_numbers[current_line]]["stations"];
+  current_line_station_n = current_line_stations.length;
+  current_line_color = lines[line_numbers[current_line]]["color"];
+  
+});
+
 
 function display_n_snippets(n) {
 
@@ -285,7 +306,11 @@ function handlecheckboxpassed(event) {
     const i = parseInt(this.id.slice(9));
     const stationid = current_line_stations[i];
     database[stationid]["passed"] = ! database[stationid]["passed"];
+
+    updateMarkerColor(stationid);
   } 
+
+
 
 }
 
@@ -294,7 +319,15 @@ function handlecheckboxbeen(event) {
   if(database){
     const i = parseInt(this.id.slice(9));
     const stationid = current_line_stations[i];
-    database[stationid]["been"] = ! database[stationid]["been"];
+    const postbool = ! database[stationid]["been"];
+    database[stationid]["been"] = postbool;
+    if (postbool){
+      database[stationid]["passed"] = true;
+      checkboxes_passed[i].checked = true;
+    }
+
+    updateMarkerColor(stationid);
+
   } 
 
 }
@@ -304,8 +337,84 @@ function handlecheckboxbeen(event) {
 for (let i = 0 ; i < max_snippets ; i++){
   checkboxes_passed[i].addEventListener("change", handlecheckboxpassed);
   checkboxes_been[i].addEventListener("change", handlecheckboxbeen);
-
 };
+
+
+
+
+
+
+const map = L.map('map', { zoomControl: true, tap: true }).setView([48.8566, 2.3359], 12);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  maxZoom: 19,
+  attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+}).addTo(map);
+
+
+function getMarkerColor(point) {
+  if (point.been) {
+    return '#2ecc71';
+  } else if (point.passed) {
+    return '#3498db';
+  } else {
+    return '#e63946';
+  }
+}
+
+let initialBounds = null;
+let markers_stations = {};
+
+async function loadMapPoints(map) {
+  try {
+
+    Object.keys(database).forEach(stationid => {
+      const point = database[stationid];
+
+      const marker = L.circleMarker([point.lat, point.long], {
+        radius: 7,
+        fillColor: getMarkerColor(point),
+        color: '#ffffff',
+        weight: 2,
+        fillOpacity: 0.9
+      }).addTo(map);
+
+      marker.bindTooltip(point.name, {
+        direction: 'top',
+        offset: [0, -5],
+        className: 'station-tooltip'
+      });
+
+      markers_stations[stationid] = marker;
+    });
+
+    const markers = Object.values(markers_stations);
+    if (markers.length > 0) {
+      const group = new L.featureGroup(markers);
+      initialBounds = group.getBounds().pad(0.2);
+      map.fitBounds(initialBounds);
+    }
+
+  } catch (error) {
+    console.error('Error loading map points:', error);
+  }
+}
+
+loadMapPoints(map);
+
+function updateMarkerColor(stationid) {
+  const marker = markers_stations[stationid];
+  if (marker) {
+    marker.setStyle({ fillColor: getMarkerColor(database[stationid]) });
+  }
+}
+
+
+document.getElementById('reset-view').addEventListener('click', () => {
+  if (initialBounds) {
+    map.flyToBounds(initialBounds);
+  }
+});
 
 
 

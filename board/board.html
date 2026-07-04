@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Board</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="../board/board.css">
-
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 </head>
 <body>
 
-    <select name="city" id="city-select">
-        <option value="paris">Paris</option>
-        <option value="lausanne">Lausanne</option>
-    </select>
+    <div id="top">
+
+        <select name="city" id="city-select">
+            <option value="paris">Paris</option>
+            <!-- <option value="lausanne">Lausanne</option> -->
+        </select>
+
+        <button id="reset-view">Reset view</button>
+
+    </div>
+    
+
     
 
     <div id="bottom">
@@ -36,6 +45,8 @@
         </div>
 
     </div>
+
+    <div id="map"></div>
     
     <script type="module" src="../board/board.js"></script>
     
