@@ -22,8 +22,8 @@ onAuthStateChanged(auth, async (user) => {
     
     const snap = await getDoc(doc(db, "users", user.uid));
     if (snap.exists()) {
-      const data = snap.data();
-      console.log(data["test"]);
+      // database = snap.data();
+      console.log("database acquired");
     }
 
   } else {
@@ -31,7 +31,6 @@ onAuthStateChanged(auth, async (user) => {
     window.location.href = '../login/login.html';
   }
 });
-
 
 
 const select = document.getElementById("city-select");
@@ -51,6 +50,13 @@ async function loadStations() {
 }
 
 const hard_data = await loadStations(); // works at top level since your script is type="module"
+
+
+const database = new Object();
+for (let i = 0 ; i <  Object.keys(hard_data.stations).length ; i ++) {
+  const stationid = Object.keys(hard_data.stations)[i];
+  database[stationid] = {"passed" : false, "been" : false};
+}
 
 
 const line_numbers = hard_data.line_numbers;
@@ -74,7 +80,8 @@ const max_snippets = 40;
 
 let stationsnippet = [];
 let names = [];
-let checkboxes = [];
+let checkboxes_passed = [];
+let checkboxes_been = [];
 
 for (let i = 0 ; i < max_snippets ; i++){
 
@@ -90,13 +97,21 @@ for (let i = 0 ; i < max_snippets ; i++){
   snippet_i.appendChild(name_i);
   names.push(name_i);
 
-  let checkbox_i = document.createElement("input");
-  checkbox_i.setAttribute("type", "checkbox")
-  id = "checkbox" + String(i);
-  checkbox_i.setAttribute("id", id);
-  checkbox_i.setAttribute("class", "checkbox");
-  snippet_i.appendChild(checkbox_i);
-  checkboxes.push(checkbox_i);
+  let checkboxp_i = document.createElement("input");
+  checkboxp_i.setAttribute("type", "checkbox")
+  id = "checkboxp" + String(i);
+  checkboxp_i.setAttribute("id", id);
+  checkboxp_i.setAttribute("class", "checkboxp");
+  snippet_i.appendChild(checkboxp_i);
+  checkboxes_passed.push(checkboxp_i);
+
+  let checkboxb_i = document.createElement("input");
+  checkboxb_i.setAttribute("type", "checkbox")
+  id = "checkboxb" + String(i);
+  checkboxb_i.setAttribute("id", id);
+  checkboxb_i.setAttribute("class", "checkboxb");
+  snippet_i.appendChild(checkboxb_i);
+  checkboxes_been.push(checkboxb_i);
 
   stations.appendChild(snippet_i);
   stationsnippet.push(snippet_i);
@@ -111,15 +126,26 @@ let current_line_color = lines[line_numbers[current_line]]["color"];
 function display_n_snippets(n) {
 
   for (let i = 0 ; i < n ; i++){
+
+    const stationid = current_line_stations[i];
     stationsnippet[i].style.display = "flex";
+
     names[i].style.display = "flex";
-    names[i].textContent = stations_names[current_line_stations[i]]["name"];
-    checkboxes[i].style.display = "flex";
+    names[i].textContent = stations_names[stationid]["name"];
+
+    checkboxes_passed[i].style.display = "flex";
+    checkboxes_been[i].style.display = "flex";
+    
+    checkboxes_passed[i].checked = database[stationid]["passed"];
+    checkboxes_been[i].checked = database[stationid]["been"];
+
+
   }
   for (let i=n; i < max_snippets ; i++){
     stationsnippet[i].style.display = "none";
     names[i].style.dislay = "none";
-    checkboxes[i].style.display = "none";
+    checkboxes_passed[i].style.display = "none";
+    checkboxes_been[i].style.display = "none";
   }
 }
 
@@ -251,6 +277,35 @@ rightarrow.addEventListener("mouseover", async () => {
 rightarrow.addEventListener("mouseout", async () => {
   rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
 });
+
+
+function handlecheckboxpassed(event) {
+
+  if(database){
+    const i = parseInt(this.id.slice(9));
+    const stationid = current_line_stations[i];
+    database[stationid]["passed"] = ! database[stationid]["passed"];
+  } 
+
+}
+
+function handlecheckboxbeen(event) {
+
+  if(database){
+    const i = parseInt(this.id.slice(9));
+    const stationid = current_line_stations[i];
+    database[stationid]["been"] = ! database[stationid]["been"];
+  } 
+
+}
+
+
+
+for (let i = 0 ; i < max_snippets ; i++){
+  checkboxes_passed[i].addEventListener("change", handlecheckboxpassed);
+  checkboxes_been[i].addEventListener("change", handlecheckboxbeen);
+
+};
 
 
 
