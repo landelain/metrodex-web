@@ -344,7 +344,7 @@ for (let i = 0 ; i < max_snippets ; i++){
 
 
 
-const map = L.map('map', { zoomControl: true, tap: true }).setView([48.8566, 2.3359], 12);
+const map = L.map('map', { zoomControl: true, tap: true }).setView([48.8566, 2.3359], 13);
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   maxZoom: 19,
@@ -365,6 +365,28 @@ function getMarkerColor(point) {
 let initialBounds = null;
 let markers_stations = {};
 
+function drawLines(map) {
+  line_numbers.forEach(lineNumber => {
+    const line = lines[lineNumber];
+    const stationIds = line.stations;
+    const color = line.color;
+
+    const latlongs = stationIds.map(stationid => {
+      const point = database[stationid];
+      return [point.lat, point.long];
+    });
+
+    L.polyline(latlongs, {
+      color: color,
+      weight: 6,
+      opacity: 0.8
+    }).addTo(map);
+  });
+}
+
+drawLines(map);
+
+
 async function loadMapPoints(map) {
   try {
 
@@ -372,14 +394,18 @@ async function loadMapPoints(map) {
       const point = database[stationid];
 
       const marker = L.circleMarker([point.lat, point.long], {
-        radius: 7,
+        radius: 6,
         fillColor: getMarkerColor(point),
         color: '#ffffff',
         weight: 2,
         fillOpacity: 0.9
       }).addTo(map);
 
-      marker.bindTooltip(point.name, {
+      const name = point.name;
+      const linestring = stations_names[stationid].line.join();
+      const argstring = `${name}<br><span class="tooltip-subtext"> Ligne(s) : ${linestring}</span>`;
+
+      marker.bindTooltip(argstring, {
         direction: 'top',
         offset: [0, -5],
         className: 'station-tooltip'
