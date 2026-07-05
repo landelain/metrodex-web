@@ -16,30 +16,28 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-onAuthStateChanged(auth, async (user) => {
-  if (user) {
-    console.log("Logged in as", user.email);
-    
-    const snap = await getDoc(doc(db, "users", user.uid));
-    if (snap.exists()) {
-      // database = snap.data();
-      console.log("database acquired");
+let current_user = null;
+
+const authReady = new Promise((resolve) => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log("Logged in as", user.email);
+      current_user = user;
+      resolve(user);
+    } else {
+      // not logged in, kick back to login page
+      window.location.href = '../login/login.html';
     }
-
-  } else {
-    // not looged in, kick back to login page
-    window.location.href = '../login/login.html';
-  }
+  });
 });
-
 
 const select = document.getElementById("city-select");
 let city = select.options[select.selectedIndex].value;
 
 
-async function loadStations() {
+async function load_stations(city_name) {
   try {
-    const response = await fetch('../hard_data/paris/paris.json');
+    const response = await fetch(`../hard_data/${city_name}/${city_name}.json`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -47,31 +45,95 @@ async function loadStations() {
   }
 }
 
-let hard_data = await loadStations(); // works at top level since your script is type="module"
-
-
-
 function dmsToDecimal(dmsString) {
   const [degrees, minutes, seconds] = dmsString.split(' ').map(Number);
   return degrees + minutes / 60 + seconds / 3600;
 }
 
-const database = new Object();
-for (let i = 0 ; i <  Object.keys(hard_data.stations).length ; i ++) {
-  const stationid = Object.keys(hard_data.stations)[i];
-  const stationname = hard_data.stations[stationid]["name"];
-  let [lat, long] = hard_data.stations[stationid]["coords"];
-  lat = dmsToDecimal(lat);
-  long = dmsToDecimal(long);
+function build_database(hard_data) {
 
-  database[stationid] = {"passed" : false, "been" : false, "name" : stationname, "lat" : lat, "long" : long};
+  const local = {};
+  const station_ids = Object.keys(hard_data.stations);
+  for (const stationid of station_ids) {
+    const stationname = hard_data.stations[stationid]["name"];
+    let [lat, long] = hard_data.stations[stationid]["coords"];
+    lat = dmsToDecimal(lat);
+    long = dmsToDecimal(long);
+    local[stationid] = { passed: false, been: false, name: stationname, lat : lat, long : long };
+  }
+  return local;
+
+}
+
+// ----------------------------- Database Remote ----------------------------
+
+function city_doc_ref(city_name) {
+  return doc(db, "users", current_user.uid, "cities", city_name);
 }
 
 
-let line_numbers = hard_data.line_numbers;
-let lines = hard_data.lines;
-let stations_names = hard_data.stations;
-let n_lines = line_numbers.length;
+async function load_or_init_database(city_name, local) {
+  const ref = city_doc_ref(city_name);
+  const snap = await getDoc(ref);
+ 
+  if (snap.exists()) {
+    const remote = snap.data().stations || {};
+    for (const stationid of Object.keys(local)) {
+      if (remote[stationid]) {
+        local[stationid].passed = !!remote[stationid].passed;
+        local[stationid].been = !!remote[stationid].been;
+      }
+    }
+  } else {
+    const stations_obj = {};
+    for (const stationid of Object.keys(local)) {
+      stations_obj[stationid] = { passed: false, been: false };
+    }
+    await setDoc(ref, { stations: stations_obj });
+  }
+}
+
+
+async function update_remote(city_name, stationid, field, value) {
+  if (!current_user) return;
+  const ref = city_doc_ref(city_name);
+  try {
+    await updateDoc(ref, { [`stations.${stationid}.${field}`]: value });
+    console.log("remote updated");
+  } catch (error) {
+    console.error("Failed to sync station update to Firestore:", error);
+  }
+}
+
+
+// ---------------------------------- App -----------------------------------
+
+let hard_data;
+let database = {};
+let line_numbers, lines, stations_names, n_lines;
+let current_line = 0;
+let current_line_stations = [];
+let current_line_station_n = 0;
+let current_line_color = "#999999";
+
+async function init_city(city_name) {
+
+  hard_data = await load_stations(city_name);
+  database = build_database(hard_data);
+  await load_or_init_database(city_name, database);
+ 
+  line_numbers = hard_data.line_numbers;
+  lines = hard_data.lines;
+  stations_names = hard_data.stations;
+  n_lines = line_numbers.length;
+ 
+  current_line = 0;
+  current_line_stations = lines[line_numbers[current_line]]["stations"];
+  current_line_station_n = current_line_stations.length;
+  current_line_color = lines[line_numbers[current_line]]["color"];
+}
+
+
 
 
 
@@ -118,28 +180,13 @@ for (let i = 0 ; i < max_snippets ; i++){
 
 }
 
-let current_line = 0;
-let current_line_stations =  lines[line_numbers[current_line]]["stations"];
-let current_line_station_n = current_line_stations.length;
-let current_line_color = lines[line_numbers[current_line]]["color"];
-
-
-
 
 select.addEventListener("change", async () => {
+
   city = select.options[select.selectedIndex].value;
-
-  hard_data = await loadStations();
-
-  line_numbers = hard_data.line_numbers;
-  lines = hard_data.lines;
-  stations_names = hard_data.stations;
-  n_lines = line_numbers.length;
-
-  current_line = 0;
-  current_line_stations =  lines[line_numbers[current_line]]["stations"];
-  current_line_station_n = current_line_stations.length;
-  current_line_color = lines[line_numbers[current_line]]["color"];
+  await init_city(city);
+  changelinearrow();
+  refresh_map();
   
 });
 
@@ -262,8 +309,6 @@ leftarrow.addEventListener("click", async () => {
   changelinearrow();
   leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
 
-  // more changes 
-
 });
 
 rightarrow.addEventListener("click", async () => {
@@ -277,8 +322,6 @@ rightarrow.addEventListener("click", async () => {
 
   changelinearrow();
   rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.7);
-
-  // more changes 
 
 });
 
@@ -302,33 +345,35 @@ rightarrow.addEventListener("mouseout", async () => {
 
 function handlecheckboxpassed(event) {
 
-  if(database){
-    const i = parseInt(this.id.slice(9));
-    const stationid = current_line_stations[i];
-    database[stationid]["passed"] = ! database[stationid]["passed"];
+  if(!database) return;
 
-    updateMarkerColor(stationid);
-  } 
-
-
+  const i = parseInt(event.target.id.slice(9));
+  const stationid = current_line_stations[i];
+  const newValue = !database[stationid]["passed"];
+  database[stationid]["passed"] = newValue;
+ 
+  update_marker_color(stationid);
+  update_remote(city, stationid, "passed", newValue);
 
 }
 
 function handlecheckboxbeen(event) {
 
-  if(database){
-    const i = parseInt(this.id.slice(9));
-    const stationid = current_line_stations[i];
-    const postbool = ! database[stationid]["been"];
-    database[stationid]["been"] = postbool;
-    if (postbool){
-      database[stationid]["passed"] = true;
-      checkboxes_passed[i].checked = true;
-    }
+  if(!database) return;
 
-    updateMarkerColor(stationid);
+  const i = parseInt(event.target.id.slice(9));
+  const stationid = current_line_stations[i];
+  const newValue = !database[stationid]["been"];
+  database[stationid]["been"] = newValue;
 
-  } 
+  update_marker_color(stationid);
+  update_remote(city, stationid, "been", newValue);
+ 
+  if (newValue && !database[stationid]["passed"]) {
+    database[stationid]["passed"] = true;
+    checkboxes_passed[i].checked = true;
+    update_remote(city, stationid, "passed", true);
+  }
 
 }
 
@@ -351,27 +396,16 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
 }).addTo(map);
 
+const linesLayer = L.layerGroup().addTo(map);
+const markersLayer = L.layerGroup().addTo(map);
 
-function getMarkerColor(point) {
-  if (point.been) {
-    return '#2ecc71';
-  } else if (point.passed) {
-    return '#3498db';
-  } else {
-    return '#e63946';
-  }
-}
-
-let initialBounds = null;
-let markers_stations = {};
-
-function drawLines(map) {
+function draw_lines() {
   line_numbers.forEach(lineNumber => {
-    const line = lines[lineNumber];
-    const stationIds = line.stations;
-    const color = line.color;
+    const line_data = lines[lineNumber];
+    const station_ids = line_data.stations;
+    const color = line_data.color;
 
-    const latlongs = stationIds.map(stationid => {
+    const latlongs = station_ids.map(stationid => {
       const point = database[stationid];
       return [point.lat, point.long];
     });
@@ -380,58 +414,74 @@ function drawLines(map) {
       color: color,
       weight: 6,
       opacity: 0.8
-    }).addTo(map);
+    }).addTo(linesLayer);
   });
 }
 
-drawLines(map);
+// draw_lines();
 
 
-async function loadMapPoints(map) {
-  try {
-
-    Object.keys(database).forEach(stationid => {
-      const point = database[stationid];
-
-      const marker = L.circleMarker([point.lat, point.long], {
-        radius: 6,
-        fillColor: getMarkerColor(point),
-        color: '#ffffff',
-        weight: 2,
-        fillOpacity: 0.9
-      }).addTo(map);
-
-      const name = point.name;
-      const linestring = stations_names[stationid].line.join();
-      const argstring = `${name}<br><span class="tooltip-subtext"> Ligne(s) : ${linestring}</span>`;
-
-      marker.bindTooltip(argstring, {
-        direction: 'top',
-        offset: [0, -5],
-        className: 'station-tooltip'
-      });
-
-      markers_stations[stationid] = marker;
-    });
-
-    const markers = Object.values(markers_stations);
-    if (markers.length > 0) {
-      const group = new L.featureGroup(markers);
-      initialBounds = group.getBounds().pad(0.2);
-      map.fitBounds(initialBounds);
-    }
-
-  } catch (error) {
-    console.error('Error loading map points:', error);
+function get_marker_color(point) {
+  if (point.been) {
+    return '#2ecc71';
+  } else if (point.passed) {
+    return '#0099ff';
+  } else {
+    return '#e63946';
   }
 }
 
-loadMapPoints(map);
+let markers_stations = {};
+let initialBounds = null;
 
-function updateMarkerColor(stationid) {
+
+function load_map_points() {
+
+  markers_stations = {};
+ 
+  Object.keys(database).forEach(stationid => {
+    const point = database[stationid];
+ 
+    const marker = L.circleMarker([point.lat, point.long], {
+      radius: 6,
+      fillColor: get_marker_color(point),
+      color: '#ffffff',
+      weight: 2,
+      fillOpacity: 0.9
+    }).addTo(markersLayer);
+ 
+    const name = point.name;
+    const linestring = stations_names[stationid].line.join();
+    const argstring = `${name}<br><span class="tooltip-subtext"> Ligne(s) : ${linestring}</span>`;
+ 
+    marker.bindTooltip(argstring, {
+      direction: 'top',
+      offset: [0, -5],
+      className: 'station-tooltip'
+    });
+ 
+    markers_stations[stationid] = marker;
+  });
+ 
+  const markers = Object.values(markers_stations);
+  if (markers.length > 0) {
+    const group = new L.featureGroup(markers);
+    initialBounds = group.getBounds().pad(0.2);
+    map.fitBounds(initialBounds);
+  }
+}
+ 
+function refresh_map() {
+  linesLayer.clearLayers();
+  markersLayer.clearLayers();
+  draw_lines();
+  load_map_points();
+}
+
+function update_marker_color(stationid) {
   const marker = markers_stations[stationid];
   if (marker) {
-    marker.setStyle({ fillColor: getMarkerColor(database[stationid]) });
+    marker.setStyle({ fillColor: get_marker_color(database[stationid]) });
   }
 }
 
@@ -443,34 +493,9 @@ document.getElementById('reset-view').addEventListener('click', () => {
 });
 
 
+// --------------------------------- Boot -----------------------------------
 
-
-
-// document.getElementById('paris_button').addEventListener('click', async () => {
-
-//   const user = auth.currentUser;
-
-//   // console.log("here")
-//   // console.log(user)
-//   // console.log(user.email)
-
-//   if (!user) {
-//     console.error("User not ready yet");
-//     return;
-//   }
-
-//   await setDoc(doc(db, "users", user.uid), {
-    
-//     city: "paris",
-    
-//   }, { merge: true });
-
-//   // const snap = await getDoc(doc(db, "users", user.uid));
-//   //   if (snap.exists()) {
-//   //     const data = snap.data();
-//   //     console.log(data["city"]);
-//   //   }
-
-//   window.location.href = '../main/main.html';
-
-// });
+await authReady;     
+await init_city(city); 
+changelinearrow();     
+refresh_map();   
