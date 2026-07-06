@@ -98,3 +98,12 @@ input {
     background: #8c8cdc;
     transition-delay: 0.05s;
 }
+
+
+#bottom-text {
+
+    position: fixed;
+    bottom: 2dvh;
+    text-align: center;
+    
+}
