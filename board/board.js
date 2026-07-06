@@ -419,21 +419,41 @@ const markersLayer = L.layerGroup().addTo(map);
 
 function draw_lines() {
   line_numbers.forEach(lineNumber => {
-    const line_data = lines[lineNumber];
-    const station_ids = line_data.stations;
-    const color = line_data.color;
+    if(! Object.keys(hard_data["linetracing"]).includes(lineNumber)){
+      const line_data = lines[lineNumber];
+      const station_ids = line_data.stations;
+      const color = line_data.color;
 
-    const latlongs = station_ids.map(stationid => {
-      const point = database[stationid];
-      return [point.lat, point.long];
-    });
+      const latlongs = station_ids.map(stationid => {
+        const point = database[stationid];
+        return [point.lat, point.long];
+      });
 
-    L.polyline(latlongs, {
-      color: color,
-      weight: 6,
-      opacity: 0.8
-    }).addTo(linesLayer);
+      L.polyline(latlongs, {
+        color: color,
+        weight: 6,
+        opacity: 0.8
+      }).addTo(linesLayer);
+    }
   });
+
+  Object.keys(hard_data["linetracing"]).forEach(lineNumber => {
+    const color = lines[lineNumber].color;
+    (hard_data["linetracing"][lineNumber]).forEach(partial_line => {
+      const latlongs = partial_line.map(stationid => {
+        const point = database[stationid];
+        return [point.lat, point.long];
+      });
+      
+      L.polyline(latlongs, {
+        color: color,
+        weight: 6,
+        opacity: 0.8
+      }).addTo(linesLayer);
+
+    });
+  });
+
 }
 
 // draw_lines();

@@ -521,6 +521,33 @@
             "img_path": "../hard_data/paris/img/14.svg"
         }
     },
+
+    "linetracing" : {
+
+        "7" : [
+            ["Cou7", "ForAub7", "AubPanQuaChe7", "PorVil7", "CorCar7", "Cri7", "Riq7", "Sta257", "LouBla77b", "ChaLan7", "GarEst457", "Poi7", "Cad7", "Pel7", "ChaAntFay79", "Ope378", "Pyr714", "PalRoyMusLou17", "PonNeu7", "Cha1471114", "PonMar7", "SulMor7", "Jus710", "PlaMon7", "CenDau7", "Gob7", "PlaIta567", "Tob7", "MaiBla714"],
+            ["MaiBla714", "KreBic7", "VilLeoLag7", "VilPauVaiCou7","VilLouAra7"],
+            ["MaiBla714", "PorIta7", "PorCho7", "PorIvr7", "PieMarCur7", "MaiIvr7"]
+        ],
+
+        "7bis" : [
+            ["LouBla77b", "Jau257b", "Bol7b", "ButCha7b", "Bot7b"],
+            ["Bot7b", "Dan7b", "PreSaiGer7b", "PlaFet7b11", "Bot7b"]
+        ],
+
+        "10" : [
+            ["BouPonSaiClo10", "BouJeaJau10", "PorAut10", "MicAngAut910", "EglAut10", "JavAndCit10"],
+            ["BouPonSaiClo10", "BouJeaJau10", "MicAngMol910", "ChaLag10", "Mir10", "JavAndCit10"],
+            ["JavAndCit10", "ChaMic10", "AveEmiZol10", "MotPicGre6810", "Seg10", "Dur1013", "Van10", "SevBab1012", "Mab10", "Ode410", "CluSor10", "MauMut10", "CarLem10", "Jus710", "GarAus510"]
+        ],
+
+        "13" : [
+            ["Cou13", "Agn13", "GabPer13", "MaiCli13", "PorCli1314", "Bro13", "Fou13"],
+            ["SaiDenUni13", "BasSaiDen13", "SaiDenPorPar13", "CarPle1314", "MaiSaiOue1314", "Gar13", "PorSaiOue13", "GuyMoq13","Fou13"],
+            ["Fou13", "PlaCli213", "Lie13", "SaiLaz3121314", "Mir913", "ChaElyCle113", "Inv813", "Var13","SaiFraXav13", "Dur1013", "MonBie461213", "Gai13", "Per13", "Pla13", "PorVan13", "MalPlaVan13", "MalRueEtiDol13", "ChaMon13"]
+        ]
+    },
+
     "stations": {
         "LaDef1": {
             "name": "La Défense",
