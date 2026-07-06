@@ -142,6 +142,7 @@ const max_snippets = 40;
 
 let stationsnippet = [];
 let names = [];
+let checkboxes_boxes = [];
 let checkboxes_passed = [];
 let checkboxes_been = [];
 
@@ -159,20 +160,25 @@ for (let i = 0 ; i < max_snippets ; i++){
   snippet_i.appendChild(name_i);
   names.push(name_i);
 
-  let checkboxp_i = document.createElement("input");
-  checkboxp_i.setAttribute("type", "checkbox")
+  let checkbox_boxi = document.createElement("div");
+  id = "checkbox-box" + String(i);
+  checkbox_boxi.setAttribute("id", id);
+  checkbox_boxi.setAttribute("class", "checkbox-box");
+  snippet_i.appendChild(checkbox_boxi);
+  checkboxes_boxes.push(checkbox_boxi);
+
+  let checkboxp_i = document.createElement("div");
   id = "checkboxp" + String(i);
   checkboxp_i.setAttribute("id", id);
   checkboxp_i.setAttribute("class", "checkboxp");
-  snippet_i.appendChild(checkboxp_i);
+  checkbox_boxi.appendChild(checkboxp_i);
   checkboxes_passed.push(checkboxp_i);
 
-  let checkboxb_i = document.createElement("input");
-  checkboxb_i.setAttribute("type", "checkbox")
+  let checkboxb_i = document.createElement("div");
   id = "checkboxb" + String(i);
   checkboxb_i.setAttribute("id", id);
   checkboxb_i.setAttribute("class", "checkboxb");
-  snippet_i.appendChild(checkboxb_i);
+  checkbox_boxi.appendChild(checkboxb_i);
   checkboxes_been.push(checkboxb_i);
 
   stations.appendChild(snippet_i);
@@ -190,6 +196,16 @@ select.addEventListener("change", async () => {
   
 });
 
+function checkbox_color(checked, passed){
+
+  if (passed){
+    return checked ? "rgb(0, 0, 255)" : "rgb(27, 27, 115)";
+  }
+  else {
+    return checked ? "rgb(0, 255, 0)" : "rgb(19, 109, 19)";
+  }
+}
+
 
 function display_n_snippets(n) {
 
@@ -204,8 +220,8 @@ function display_n_snippets(n) {
     checkboxes_passed[i].style.display = "flex";
     checkboxes_been[i].style.display = "flex";
     
-    checkboxes_passed[i].checked = database[stationid]["passed"];
-    checkboxes_been[i].checked = database[stationid]["been"];
+    checkboxes_passed[i].style.backgroundColor = checkbox_color(database[stationid]["passed"], true);
+    checkboxes_been[i].style.backgroundColor = checkbox_color(database[stationid]["been"], false);
 
 
   }
@@ -351,7 +367,8 @@ function handlecheckboxpassed(event) {
   const stationid = current_line_stations[i];
   const newValue = !database[stationid]["passed"];
   database[stationid]["passed"] = newValue;
- 
+  
+  event.target.style.backgroundColor = checkbox_color(newValue, true);
   update_marker_color(stationid);
   update_remote(city, stationid, "passed", newValue);
 
@@ -366,12 +383,13 @@ function handlecheckboxbeen(event) {
   const newValue = !database[stationid]["been"];
   database[stationid]["been"] = newValue;
 
+  event.target.style.backgroundColor = checkbox_color(newValue, false);
   update_marker_color(stationid);
   update_remote(city, stationid, "been", newValue);
  
   if (newValue && !database[stationid]["passed"]) {
     database[stationid]["passed"] = true;
-    checkboxes_passed[i].checked = true;
+    checkboxes_passed[i].style.backgroundColor = checkbox_color(true, true);
     update_remote(city, stationid, "passed", true);
   }
 
@@ -380,8 +398,8 @@ function handlecheckboxbeen(event) {
 
 
 for (let i = 0 ; i < max_snippets ; i++){
-  checkboxes_passed[i].addEventListener("change", handlecheckboxpassed);
-  checkboxes_been[i].addEventListener("change", handlecheckboxbeen);
+  checkboxes_passed[i].addEventListener("click", handlecheckboxpassed);
+  checkboxes_been[i].addEventListener("click", handlecheckboxbeen);
 };
 
 
