@@ -30,78 +30,68 @@ body {
 }
 
 #login_block {
-
-    height: 70dvh;
-    width: 90dvw;
-    justify-content: center;
-    background-color: rgba(31, 78, 157, 0.8);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* padding: 20dvh; */
-    border-radius: 10px;
+  height: 80dvh;
+  width: 90dvw;
+  padding: 5dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(31, 78, 157, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 #text_block {
-
-    height: 50dvh;
-    width: fit-content;
-    align-content: center;
-    margin: 5dvh;
-    background-color: #9e9ee9;
-    padding: 2%;
-    padding-left: 10%;
-    padding-right: 10%;
-    border-radius: 10px;
-    text-align: center;
-}
-
-#login_text {
-
-    font-size: 200%;
+  flex: 4 1 0;    
+  min-height: 0; 
+  width: fit-content;
+  background-color: #9e9ee9;
+  padding: 2% 10%;
+  margin-bottom: 6dvh;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-size: 200%;
 }
 
 .input_block {
-    height: 40dvh;
-    width: 80dvw;
-    margin: 2dvh;
-    padding: 3dvh;
-    background: #9e9ee9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; 
-    border-radius: 10px;
-
+  flex: 4 1 0;
+  min-height: 0;
+  width: 80dvw;
+  margin: 2dvh 0;
+  background: #9e9ee9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 input {
-
-    height: 10dvh;
-    width: 70dvw;
-    font-size: 150%;
-    text-align: center;
-    border-radius: 10px;
-    border: none;
-
+  height: 70%;
+  max-height: 10dvh;  
+  width: 70dvw;
+  font-size: 150%;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
 }
 
 #login_button {
-
-    height: 20dvh;
-    width: 70dvw;
-    margin: 2dvh;
-    padding: 2dvh;
-    background: #9e9ee9;
-    border: none;
-    border-radius: 10px;
-    font-size: 150%;
-
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
+  flex: 2 1 0;
+  min-height: 0;
+  width: 70dvw;
+  margin: 2dvh 0;
+  background: #9e9ee9;
+  border: none;
+  border-radius: 10px;
+  font-size: 150%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #login_button:hover {
