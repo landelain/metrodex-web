@@ -45,10 +45,10 @@ async function load_stations(city_name) {
   }
 }
 
-function dmsToDecimal(dmsString) {
-  const [degrees, minutes, seconds] = dmsString.split(' ').map(Number);
-  return degrees + minutes / 60 + seconds / 3600;
-}
+// function dmsToDecimal(dmsString) {
+//   const [degrees, minutes, seconds] = dmsString.split(' ').map(Number);
+//   return degrees + minutes / 60 + seconds / 3600;
+// }
 
 function build_database(hard_data) {
 
@@ -57,8 +57,8 @@ function build_database(hard_data) {
   for (const stationid of station_ids) {
     const stationname = hard_data.stations[stationid]["name"];
     let [lat, long] = hard_data.stations[stationid]["coords"];
-    lat = dmsToDecimal(lat);
-    long = dmsToDecimal(long);
+    // lat = dmsToDecimal(lat);
+    // long = dmsToDecimal(long);
     local[stationid] = { passed: false, been: false, name: stationname, lat : lat, long : long };
   }
   return local;
