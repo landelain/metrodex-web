@@ -199,7 +199,7 @@ body {
   /* background-color: rgb(169, 245, 37); */
   height: 5dvh;
   width: 100%;
-  margin-bottom: 6dvh;
+  margin-bottom: 10dvh;
   display: flex;
   flex-direction: column;
 
@@ -214,7 +214,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 130%;
+  font-size: 150%;
   margin-bottom: 1dvh;
 
 }
