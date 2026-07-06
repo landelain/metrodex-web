@@ -23,31 +23,31 @@ body {
 
     /* background-color:  white; */
     background-image: url(../login/login_bg_img.jpg);
-    background-size: cover;
-    background-position: top center;
+    background-size: auto 100dvh;
+    background-position: center top;
     background-repeat: no-repeat;
 
 }
 
 #login_block {
 
-    height: 70%;
-    width: 80%;
+    height: 70dvh;
+    width: 90dvw;
     justify-content: center;
     background-color: rgba(31, 78, 157, 0.8);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4%;
+    /* padding: 20dvh; */
     border-radius: 10px;
 }
 
 #text_block {
 
-    height: 40%;
+    height: 50dvh;
     width: fit-content;
     align-content: center;
-    margin: 5%;
+    margin: 5dvh;
     background-color: #9e9ee9;
     padding: 2%;
     padding-left: 10%;
@@ -62,10 +62,10 @@ body {
 }
 
 .input_block {
-    height: 20%;
-    width: 90%;
-    margin: 4%;
-    padding: 1%;
+    height: 40dvh;
+    width: 80dvw;
+    margin: 2dvh;
+    padding: 3dvh;
     background: #9e9ee9;
     display: flex;
     justify-content: center;
@@ -77,8 +77,8 @@ body {
 
 input {
 
-    height: 80%;
-    width: 90%;
+    height: 10dvh;
+    width: 70dvw;
     font-size: 150%;
     text-align: center;
     border-radius: 10px;
@@ -88,10 +88,10 @@ input {
 
 #login_button {
 
-    height: 20%;
-    width: 75%;
-    margin: 4%;
-    padding: 2%;
+    height: 20dvh;
+    width: 70dvw;
+    margin: 2dvh;
+    padding: 2dvh;
     background: #9e9ee9;
     border: none;
     border-radius: 10px;
