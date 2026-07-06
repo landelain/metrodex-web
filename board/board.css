@@ -227,8 +227,8 @@ body {
 
 .checkboxp {
 
-  height: 4dvh;
-  width: 6dvw;
+  aspect-ratio: 1 / 1;         
+  width: min(6dvw, 40px);
   background-color: rgb(27, 27, 115);
   margin-right: 1dvw;
 
@@ -242,8 +242,8 @@ body {
 
 .checkboxb {
 
-  height: 4dvh;
-  width: 6dvw;
+  aspect-ratio: 1 / 1;         
+  width: min(6dvw, 40px);
   background-color: rgb(19, 109, 19);
   margin-left: 1dvw;
   
