@@ -68,9 +68,12 @@ body {
   background-color: #9e9ee9;
   border: none;
   border-radius: 10px;
-  font-size: 100%;
+  font-size: 110%;
   white-space: nowrap;  
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   z-index: 10;
   pointer-events: auto; 
 }
@@ -115,7 +118,7 @@ body {
 #station-board {
 
   height: fit-content;
-  width: 80dvw;
+  width: 90dvw;
   background: #9e9ee9;
   border: none;
   border-radius: 10px;

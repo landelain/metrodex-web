@@ -97,17 +97,14 @@ input {
     border-radius: 10px;
     font-size: 150%;
 
-    -webkit-tap-highlight-color: transparent;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 #login_button:hover {
     background: #8c8cdc;
     transition-delay: 0.05s;
-}
-
-#login_button:active {
-    transition-delay: 0.05s;
-    transform: translateY(4px);
-    color: black;
 }

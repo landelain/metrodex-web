@@ -26,8 +26,7 @@ document.getElementById('login_button').addEventListener('click', async () => {
 
     await setDoc(doc(db, "users", user.uid), {
     email: user.email,
-    joinedAt: new Date(),
-    test: "salut"
+    joinedAt: new Date()
     }, { merge: true });
 
     // only redirect AFTER login succeeds
