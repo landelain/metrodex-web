@@ -131,11 +131,48 @@ async function init_city(city_name) {
   current_line_stations = lines[line_numbers[current_line]]["stations"];
   current_line_station_n = current_line_stations.length;
   current_line_color = lines[line_numbers[current_line]]["color"];
+
+  update_score(true);
+
 }
 
+function compute_score(line_array) {
 
+  let count = 0;
+  let total = 0;
 
+  line_array.forEach( line_number => {
 
+    lines[line_number]["stations"].forEach( stationid => {
+
+      total = total + 2;
+      if (database[stationid]["passed"]){
+        count = count + 1;
+      }
+      if (database[stationid]["been"]){
+        count = count + 1;
+      }
+
+    });
+
+  });
+
+  let score = Math.round((count/total * 10000)) / 100;
+  return String(score).concat(" %");
+}
+
+function update_score(updatetotal){
+
+  score_line.textContent = compute_score([line_numbers[current_line]]);
+
+  if(updatetotal){
+    score_total.textContent = compute_score(line_numbers);
+  }
+
+}
+
+const score_total = document.getElementById("score-total");
+const score_line = document.getElementById("score-line");
 
 const stations = document.getElementById("stations");
 const max_snippets = 40;
@@ -206,6 +243,12 @@ function checkbox_color(checked, passed){
   }
 }
 
+function checkbox_border(checked){
+
+  return checked ? "white" : "black";
+
+}
+
 
 function display_n_snippets(n) {
 
@@ -222,6 +265,9 @@ function display_n_snippets(n) {
     
     checkboxes_passed[i].style.backgroundColor = checkbox_color(database[stationid]["passed"], true);
     checkboxes_been[i].style.backgroundColor = checkbox_color(database[stationid]["been"], false);
+
+    checkboxes_passed[i].style.borderColor = checkbox_border(database[stationid]["passed"]);
+    checkboxes_been[i].style.borderColor = checkbox_border(database[stationid]["been"]);
 
 
   }
@@ -265,6 +311,7 @@ function colorchange(){
   leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
   rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
   line.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
+  score_line.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
 
 }
 
@@ -310,6 +357,8 @@ function changelinearrow(){
 
   current_line_color = lines[line_numbers[current_line]]["color"];
   colorchange();
+
+  update_score(false);
 
 }
 
@@ -365,10 +414,17 @@ function handlecheckboxpassed(event) {
 
   const i = parseInt(event.target.id.slice(9));
   const stationid = current_line_stations[i];
+
+  if(database[stationid]["been"]) return;
+
   const newValue = !database[stationid]["passed"];
+
   database[stationid]["passed"] = newValue;
   
   event.target.style.backgroundColor = checkbox_color(newValue, true);
+  event.target.style.borderColor = checkbox_border(newValue);
+
+  update_score(true);
   update_marker_color(stationid);
   update_remote(city, stationid, "passed", newValue);
 
@@ -384,12 +440,16 @@ function handlecheckboxbeen(event) {
   database[stationid]["been"] = newValue;
 
   event.target.style.backgroundColor = checkbox_color(newValue, false);
+  event.target.style.borderColor = checkbox_border(newValue);
+
+  update_score(true);
   update_marker_color(stationid);
   update_remote(city, stationid, "been", newValue);
  
   if (newValue && !database[stationid]["passed"]) {
     database[stationid]["passed"] = true;
     checkboxes_passed[i].style.backgroundColor = checkbox_color(true, true);
+    checkboxes_passed[i].style.borderColor = checkbox_border(true);
     update_remote(city, stationid, "passed", true);
   }
 
@@ -403,8 +463,7 @@ for (let i = 0 ; i < max_snippets ; i++){
 };
 
 
-
-
+// ---------------------------------- MAP -----------------------------------
 
 
 const map = L.map('map', { zoomControl: true, tap: true }).setView([48.8566, 2.3359], 13);

@@ -44,6 +44,7 @@ body {
   height: 5dvh;
   width: fit-content;
   margin: 2dvh;
+  margin-right: 1dvh;
   padding: 1dvh 4dvw;
   background-color: #9e9ee9;
   border: none;
@@ -80,6 +81,27 @@ body {
 
 #reset-view:hover {
     background-color: #7979c6;
+}
+
+#score-total {
+
+  height: 5dvh;
+  width: fit-content;
+  margin: 2dvh;
+  margin-left: 1dvh;
+  padding: 1dvh 4dvw;
+  background-color: #9e9ee9;
+  border: none;
+  border-radius: 10px;
+  font-size: 110%;
+  white-space: nowrap;  
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: auto; 
+
 }
 
 #bottom {
@@ -175,6 +197,26 @@ body {
   background-color: #6464a4;
   border: none;
   border-radius: 10px;
+  text-align: center;
+  align-items: center;    
+  justify-content: center;
+  display: flex;
+  white-space: nowrap;
+
+}
+
+#score-line {
+
+  height: 2dvh;
+  width: fit-content;
+  /* problem with padding here  */
+  padding: 2dvh; 
+  padding-left: 5dvw;
+  padding-right: 5dvw;
+  font-size: 150%;
+  background-color: #6464a4;
+  border: none;
+  border-radius: 7px;
   text-align: center;
   align-items: center;    
   justify-content: center;
