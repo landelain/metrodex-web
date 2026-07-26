@@ -441,8 +441,7 @@ function handlecheckboxbeen(event) {
 
   event.target.style.backgroundColor = checkbox_color(newValue, false);
   event.target.style.borderColor = checkbox_border(newValue);
-
-  update_score(true);
+  
   update_marker_color(stationid);
   update_remote(city, stationid, "been", newValue);
  
@@ -452,6 +451,8 @@ function handlecheckboxbeen(event) {
     checkboxes_passed[i].style.borderColor = checkbox_border(true);
     update_remote(city, stationid, "passed", true);
   }
+
+  update_score(true);
 
 }
 
