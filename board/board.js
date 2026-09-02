@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, doc, setDoc, getDoc, getDocs, query, where, orderBy, limit, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, doc, setDoc, getDoc, getDocs, query, where, orderBy, limit, updateDoc, serverTimestamp, deleteField } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 
 const firebaseConfig = {
@@ -21,8 +21,8 @@ let current_user = null;
 const authReady = new Promise((resolve) => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log("Logged in as", user.email);
       current_user = user;
+      console.log("Logged in as", user.email);
       resolve(user);
     } else {
       // not logged in, kick back to login page
@@ -116,6 +116,7 @@ let current_line_stations = [];
 let current_line_station_n = 0;
 let current_line_color = "#999999";
 
+
 async function init_city(city_name) {
 
   hard_data = await load_stations(city_name);
@@ -158,21 +159,24 @@ function compute_score(line_array) {
   });
 
   let score = Math.round((count/total * 10000)) / 100;
-  return String(score).concat(" %");
+  return score;
 }
 
 function update_score(updatetotal){
 
-  score_line.textContent = compute_score([line_numbers[current_line]]);
+  score_line.textContent = String(compute_score([line_numbers[current_line]])).concat(" %");
 
   if(updatetotal){
-    score_total.textContent = compute_score(line_numbers);
+    global_user_score = compute_score(line_numbers);
+    score_total.textContent = String(global_user_score).concat(" %")
   }
 
+  update_leaderboard_score();
 }
 
 const score_total = document.getElementById("score-total");
 const score_line = document.getElementById("score-line");
+let global_user_score = 0;
 
 const stations = document.getElementById("stations");
 const max_snippets = 40;
@@ -593,43 +597,103 @@ document.getElementById('reset-view').addEventListener('click', () => {
 
 // ------------------------- Leader Board -----------------------------------
 
+async function update_leaderboard_score() {
+  if (!current_user) return;
+  try {
+    const ref = doc(db, "leaderboard", "leaderboard");
+    await setDoc(ref, { [username] : global_user_score }, { merge: true });
+    console.log("leaderboard updated");
+  } catch (error) {
+    console.error("Failed to update leaderboard:", error);
+  }
+}
 
-// function leaderboard_doc_ref() {
-//   return doc(db, "leaderboard", current_user.uid);
-// }
+async function fetch_leaderboard(topN = 50) {
+  try {
+    const q = query(
+      collection(db, "leaderboard"),
+      orderBy("score", "desc"),
+      limit(topN)
+    );
+    const snap = await getDocs(q);
+    return snap.docs.map(d => ({ uid: d.id, ...d.data() }));
+  } catch (error) {
+    console.error("Failed to fetch leaderboard:", error);
+    return [];
+  }
+}
 
-// async function update_leaderboard_score(scoreValue) {
-//   if (!current_user) return;
-//   try {
-//     await setDoc(leaderboard_doc_ref(), {
-//       username: current_user.displayName || current_user.email, // change to fetch name in new segment
-//       score: scoreValue,
-//       updatedAt: serverTimestamp()
-//     }, { merge: true });
-//     console.log("leaderboard updated");
-//   } catch (error) {
-//     console.error("Failed to update leaderboard:", error);
-//   }
-// }
+async function delete_leader_username(){
 
-// async function fetch_leaderboard(topN = 50) {
-//   try {
-//     const q = query(
-//       collection(db, "leaderboard"),
-//       orderBy("score", "desc"),
-//       limit(topN)
-//     );
-//     const snap = await getDocs(q);
-//     return snap.docs.map(d => ({ uid: d.id, ...d.data() }));
-//   } catch (error) {
-//     console.error("Failed to fetch leaderboard:", error);
-//     return [];
-//   }
-// }
+  if (!current_user) return;
+  const ref = doc(db, "leaderboard", "leaderboard");
+  try {
+    await updateDoc(ref, { [username]: deleteField() });
+    console.log("remote updated");
+  } catch (error) {
+    console.error("Failed to sync station update to Firestore:", error);
+  }
+
+}
+
+async function update_remote_username(){
+
+  if (!current_user) return;
+  const ref = doc(db, "users", current_user.uid);
+  try {
+    await updateDoc(ref, { "username": username });
+    console.log("remote updated");
+  } catch (error) {
+    console.error("Failed to sync station update to Firestore:", error);
+  }
+
+}
+
+async function init_username() {
+
+  const ref = doc(db, "users", current_user.uid);
+  const snap = await getDoc(ref);
+
+  if (snap.exists()) {
+
+    const userdata = snap.data();
+    if("username" in userdata){
+      username = userdata.username;
+      console.log(`fetched username : ${username}`);
+    }
+    else{
+      username = userdata.email.slice(0, 7);
+      await setDoc(ref, { "username" : username });
+      console.log(`created username : ${username}`);
+    }
+
+  }
+  else {
+    console.log("error in loading username");
+  }
+  
+  playername.value = username;
+
+}
+
+function display_leaderboard(){
+
+  
+
+}
+
+function hide_leaderboard(){
+
+}
+
+
+let username;
 
 const side = document.getElementById("side");
 const leaderboard = document.getElementById("leaderboard");
 const leadarrow = document.getElementById("leadarrow");
+const playername = document.getElementById("playername");
+const namebutton = document.getElementById("namebutton");
 let hidden_leaderboard = true;
 
 leadarrow.addEventListener("click", async () => {
@@ -638,32 +702,46 @@ leadarrow.addEventListener("click", async () => {
 
     side.style.justifyContent = "flex-start";
     leaderboard.style.display = "flex";
-    // display things later
+    display_leaderboard();
 
     hidden_leaderboard = false;
 
-    leadarrow.textContent = ">"; // change that
-    // leadarrow.style.justifyContent = "flex-start";
+    leadarrow.textContent = ">"; 
     leadarrow.style.transform = "translateX(-50%)";
 
   } else {
 
     side.style.justifyContent = "flex-end";
     leaderboard.style.display = "none";
+    hide_leaderboard();
 
     hidden_leaderboard = true;
 
     leadarrow.textContent = "<";
-    // leadarrow.style.justifyContent = "flex-end";
     leadarrow.style.transform = "translateX(0%)";
 
   }
 
 });
 
+namebutton.addEventListener("click", async () => {
+
+  delete_leader_username();
+
+  let newname = playername.value;
+  username = newname;
+  update_remote_username();
+  update_leaderboard_score();
+
+});
+
+
+
 // --------------------------------- Boot -----------------------------------
 
 await authReady;     
 await init_city(city); 
+await init_username();
+await update_leaderboard_score();
 changelinearrow();     
 refresh_map();   
