@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, doc, setDoc, getDoc, getDocs, query, where, updateDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, doc, setDoc, getDoc, getDocs, query, where, orderBy, limit, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 
 const firebaseConfig = {
@@ -293,7 +293,7 @@ leftarrow.textContent = "<";
 rightarrow.textContent = ">";
 
 
-function changecolorrgb(rgbString, factor = 0.8) {
+function changecolorrgb(rgbString, factor = 0.8, opacity = 1) {
   const parts = rgbString.match(/[\d.]+/g).map(Number);
   const [r, g, b] = parts;
 
@@ -301,12 +301,12 @@ function changecolorrgb(rgbString, factor = 0.8) {
   const newG = Math.round(g * factor);
   const newB = Math.round(b * factor);
 
-  return `rgb(${newR}, ${newG}, ${newB})`;
+  return `rgba(${newR}, ${newG}, ${newB}, ${opacity})`;
 }
 
 function colorchange(){
 
-  stationboard.style.backgroundColor = current_line_color;
+  stationboard.style.backgroundColor = changecolorrgb(current_line_color, 1, 0.8);
 
   leftarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
   rightarrow.style.backgroundColor = changecolorrgb(current_line_color, 0.8);
@@ -330,7 +330,7 @@ arrow.addEventListener("click", async () => {
 
     arrow.textContent = "⌄";
     arrow.style.justifyContent = "flex-start";
-    arrow.style.transform = "translateY(50%)";
+    arrow.style.transform = "translateY(-50%)";
 
   } else {
 
@@ -590,6 +590,76 @@ document.getElementById('reset-view').addEventListener('click', () => {
   }
 });
 
+
+// ------------------------- Leader Board -----------------------------------
+
+
+// function leaderboard_doc_ref() {
+//   return doc(db, "leaderboard", current_user.uid);
+// }
+
+// async function update_leaderboard_score(scoreValue) {
+//   if (!current_user) return;
+//   try {
+//     await setDoc(leaderboard_doc_ref(), {
+//       username: current_user.displayName || current_user.email, // change to fetch name in new segment
+//       score: scoreValue,
+//       updatedAt: serverTimestamp()
+//     }, { merge: true });
+//     console.log("leaderboard updated");
+//   } catch (error) {
+//     console.error("Failed to update leaderboard:", error);
+//   }
+// }
+
+// async function fetch_leaderboard(topN = 50) {
+//   try {
+//     const q = query(
+//       collection(db, "leaderboard"),
+//       orderBy("score", "desc"),
+//       limit(topN)
+//     );
+//     const snap = await getDocs(q);
+//     return snap.docs.map(d => ({ uid: d.id, ...d.data() }));
+//   } catch (error) {
+//     console.error("Failed to fetch leaderboard:", error);
+//     return [];
+//   }
+// }
+
+const side = document.getElementById("side");
+const leaderboard = document.getElementById("leaderboard");
+const leadarrow = document.getElementById("leadarrow");
+let hidden_leaderboard = true;
+
+leadarrow.addEventListener("click", async () => {
+
+  if (hidden_leaderboard) {
+
+    side.style.justifyContent = "flex-start";
+    leaderboard.style.display = "flex";
+    // display things later
+
+    hidden_leaderboard = false;
+
+    leadarrow.textContent = ">"; // change that
+    // leadarrow.style.justifyContent = "flex-start";
+    leadarrow.style.transform = "translateX(-50%)";
+
+  } else {
+
+    side.style.justifyContent = "flex-end";
+    leaderboard.style.display = "none";
+
+    hidden_leaderboard = true;
+
+    leadarrow.textContent = "<";
+    // leadarrow.style.justifyContent = "flex-end";
+    leadarrow.style.transform = "translateX(0%)";
+
+  }
+
+});
 
 // --------------------------------- Boot -----------------------------------
 
