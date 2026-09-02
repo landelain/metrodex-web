@@ -131,10 +131,12 @@ body {
   position: absolute;
   display: none;
   flex-direction: column;
+  justify-content: flex-start;
   border: none;
   border-radius: 10px;
   pointer-events: auto; 
 
+  align-items: center;
 }
 
 #leadarrow {
@@ -160,6 +162,67 @@ body {
 #leadarrow:hover {
   background-color: #7979c6;
 }
+
+#leaderboard-title {
+
+  font-size: 200%;
+  margin-top: 3dvh;
+   margin-bottom: 3dvh;
+  color: #302165;
+}
+
+#players {
+  height: 45dvh;
+  width: 70dvw;
+  background-color: aqua;
+  margin-bottom: 3dvh;
+
+}
+
+#namechange {
+
+  height: 7dvh;
+  width: 70dvw;
+  /* background-color: aliceblue; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#playername {
+
+  height: inherit;
+  width: 50dvw;
+  margin-right: 3dvw;
+  border: none;
+  border-radius: 10px;
+  
+  text-align: center;
+  overflow: hidden;
+  font-size: 150%;
+
+}
+
+#namebutton {
+
+  height: inherit;
+  width: 7dvh;
+  background-color: #9e9ee9;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #302165;
+  font-size: 150%;
+
+}
+
+#namebutton:hover {
+  background-color: #7979c6;
+}
+
 
 #bottom {
   margin-top: 15dvh;
