@@ -171,7 +171,7 @@ function update_score(updatetotal){
     score_total.textContent = String(global_user_score).concat(" %")
   }
 
-  update_leaderboard_score();
+  // update_leaderboard_score();
 }
 
 const score_total = document.getElementById("score-total");
@@ -601,6 +601,7 @@ async function update_leaderboard_score() {
   if (!current_user) return;
   try {
     const ref = doc(db, "leaderboard", "leaderboard");
+    // should check if username already exists
     await setDoc(ref, { [username] : global_user_score }, { merge: true });
     console.log("leaderboard updated");
   } catch (error) {
@@ -651,6 +652,7 @@ async function update_remote_username(){
 
 async function init_username() {
 
+  // should check if username already exists
   const ref = doc(db, "users", current_user.uid);
   const snap = await getDoc(ref);
 
@@ -676,24 +678,98 @@ async function init_username() {
 
 }
 
+
 function display_leaderboard(){
 
-  
+  // fetch leaderboard_entries (to be done)
+
+  let leaderboard_names = Object.keys(leaderboard_entries);
+  let n = leaderboard_names.length;
+  let m = leaderboardsnippet.length;
+
+  if(n > m){
+    for (let i = 0; i < n-m; i++){
+      // create new snippets if needed
+
+      let lsnippet_i = document.createElement("div");
+      let id = "lsnippet" + String(i);
+      lsnippet_i.setAttribute("id", id);
+      lsnippet_i.setAttribute("class", "lsnippet");
+
+      let lname_i = document.createElement("b");
+      id = "lname" + String(i);
+      lname_i.setAttribute("id", id);
+      lname_i.setAttribute("class", "lname");
+      lsnippet_i.appendChild(lname_i);
+      lnames.push(lname_i);
+
+      let lscore_i = document.createElement("b");
+      id = "lscore" + String(i);
+      lscore_i.setAttribute("id", id);
+      lscore_i.setAttribute("class", "lscore");
+      lsnippet_i.appendChild(lscore_i);
+      lscores.push(lscore_i);
+
+      players.appendChild(lsnippet_i);
+      leaderboardsnippet.push(lsnippet_i);
+
+    }
+  }
+
+  for (let i = 0 ; i < n ; i++){
+
+    const name_i = leaderboard_names[i];
+    leaderboardsnippet[i].style.display = "flex";
+
+    // lnames[i].style.display = "flex";
+    lnames[i].textContent = name_i;
+    lscores[i].textContent = String(leaderboard_entries[name_i]) + " %";
+    
+  }
 
 }
 
 function hide_leaderboard(){
+
+  let m = leaderboardsnippet.length;
+
+  for(let i = 0 ; i < m; i++){
+
+    leaderboardsnippet[i].style.display = "none";
+
+  }
 
 }
 
 
 let username;
 
+let leaderboard_entries = {
+  "lucas" : 2,
+  "cyriac" : 3,
+  "paul" : 4,
+  "flore" : 5,
+  "maelle" : 6,
+  "mia" : 7,
+  "gabou" : 8,
+  "alix" : 9,
+  "angela" : 10,
+  "nic" : 11,
+  "justine" : 12,
+  "antoine" : 13
+    
+  };
+
+let leaderboardsnippet = [];
+let lnames = [];
+let lscores = [];
+
 const side = document.getElementById("side");
 const leaderboard = document.getElementById("leaderboard");
 const leadarrow = document.getElementById("leadarrow");
 const playername = document.getElementById("playername");
 const namebutton = document.getElementById("namebutton");
+const players = document.getElementById("players");
 let hidden_leaderboard = true;
 
 leadarrow.addEventListener("click", async () => {
@@ -729,11 +805,19 @@ namebutton.addEventListener("click", async () => {
   delete_leader_username();
 
   let newname = playername.value;
-  username = newname;
-  update_remote_username();
-  update_leaderboard_score();
+  if (newname.length < 13){
+    username = newname;
+    // should do them backward to first check if username aready exists thanks to update_leaderboard_score
+    update_remote_username();
+    update_leaderboard_score();
+  }
+  else {
+    console.log("Error : new name too long, max 12 chars")
+  }
 
 });
+
+
 
 
 
@@ -742,6 +826,6 @@ namebutton.addEventListener("click", async () => {
 await authReady;     
 await init_city(city); 
 await init_username();
-await update_leaderboard_score();
+// await update_leaderboard_score();
 changelinearrow();     
 refresh_map();   

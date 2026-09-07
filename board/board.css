@@ -165,17 +165,43 @@ body {
 
 #leaderboard-title {
 
-  font-size: 200%;
+  font-size: 210%;
   margin-top: 3dvh;
-   margin-bottom: 3dvh;
+  margin-bottom: 3dvh;
   color: #302165;
 }
 
 #players {
   height: 45dvh;
   width: 70dvw;
-  background-color: aqua;
+  /* background-color: aqua; */
   margin-bottom: 3dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll; 
+  border: 0.5dvh solid;
+  border-color: #302165;
+
+}
+
+.lsnippet {
+
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1dvh;
+  font-size: 140%;
+  width: 40dvw;
+  color: #302165;
+
+}
+
+.lname {
+
+
+}
+
+.lscore {
 
 }
 
@@ -200,6 +226,7 @@ body {
   text-align: center;
   overflow: hidden;
   font-size: 150%;
+  color: #302165;
 
 }
 
@@ -214,8 +241,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #302165;
   font-size: 150%;
+  color: #302165;
 
 }
 
