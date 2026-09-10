@@ -163,12 +163,48 @@ body {
   background-color: #7979c6;
 }
 
+#topleaderboard {
+  height: fit-content;
+  width: 70dvw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3dvh;
+  margin-bottom: 3dvh;
+}
+
 #leaderboard-title {
 
   font-size: 210%;
-  margin-top: 3dvh;
-  margin-bottom: 3dvh;
   color: #302165;
+  margin-right: 7dvw;
+
+}
+
+#leaderboardswitch {
+
+  height: 5dvh;
+  width: 9dvh;
+  background-color: #9e9ee9;
+  border-radius: 10dvh;
+  border: 0.5dvh solid;
+  border-color: #302165;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+#switchball {
+  height: 4.1dvh;
+  width: 4.1dvh;
+  background-color: #65559e;
+  border-radius: 10dvh;
+  /* border: 0.5dvh solid;
+  border-color: #302165; */
+
 }
 
 #players {
@@ -195,7 +231,7 @@ body {
   color: #302165;
 
 }
-
+/* 
 .lname {
 
 
@@ -203,11 +239,12 @@ body {
 
 .lscore {
 
-}
+} */
 
 #namechange {
 
-  height: 7dvh;
+  margin-top: 2dvh;
+  height: 6dvh;
   width: 70dvw;
   /* background-color: aliceblue; */
   display: flex;

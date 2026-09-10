@@ -1,0 +1,323 @@
+{
+    "city" : "lausanne",
+    "line_numbers" : [
+        "M1",
+        "M2"
+    ],
+    "lines" : {
+        "M1" : {
+            "stations" : [
+                "Gar1",
+                "Epe1",
+                "Cro1",
+                "Cer1",
+                "Bas1",
+                "EPF1",
+                "UNISor1",
+                "UNIMou1",
+                "UNICha1",
+                "Bou1",
+                "Mal1",
+                "Pro1",
+                "Mon1",
+                "Vig1",
+                "LauFlo1"
+            ],
+            "color": "rgb(247, 208, 70)" 
+        },
+        "M2" : {
+            "stations" : [
+
+            ],
+            "color" :  "rgb(247, 208, 70)"
+        }
+    },
+
+    "stations" : {
+
+        "Gar1": {
+            "name": "Gare",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Epe1": {
+            "name": "Epenex",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Cro1": {
+            "name": "Crochy",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Cer1": {
+            "name": "Cerisaie",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Bas1": {
+            "name": "Bassenges",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "EPF1": {
+            "name": "EPFL",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "UNISor1": {
+            "name": "UNIL-Sorge",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "UNIMou1": {
+            "name": "UNIL-Mouline",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "UNICha1": {
+            "name": "UNIL-Chamberonne",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Bou1": {
+            "name": "Bourdonnette",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Mal1": {
+            "name": "Malley",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Pro1": {
+            "name": "Provence",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Mon1": {
+            "name": "Montelly",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Vig1": {
+            "name": "Vigie",
+            "line": [
+                "M1"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "LauFlo1": {
+            "name": "Lausanne Flon",
+            "line": [
+                "M1",
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+
+        "OucOly2": {
+            "name": "Ouchy-Olympique",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Jor2": {
+            "name": "Jordils",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Del2": {
+            "name": "Délices",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Gra2": {
+            "name": "Grancy",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "LauGar2": {
+            "name": "Lausannesn, gare",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "RipMBej2": {
+            "name": "Riponne-M. Béjart",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Bes2": {
+            "name": "Bessières",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Our2": {
+            "name": "Ours",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "CHU2": {
+            "name": "CHUV",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Sal2": {
+            "name": "Sallaz",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Fou2": {
+            "name": "Fourmi",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Ven2": {
+            "name": "Vennes",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        },
+        "Cro2": {
+            "name": "Croisettes",
+            "line": [
+                "M2"
+            ],
+            "coords": [
+                48.89194,
+                2.23778
+            ]
+        }
+
+    }
+
+}

@@ -172,6 +172,8 @@ function update_score(updatetotal){
   }
 
   // update_leaderboard_score();
+  // -> update remote score on leaderboard database
+  // both for the city and global scores
 }
 
 const score_total = document.getElementById("score-total");
@@ -610,6 +612,7 @@ async function update_leaderboard_score() {
 }
 
 async function fetch_leaderboard(topN = 50) {
+  // function to recheck
   try {
     const q = query(
       collection(db, "leaderboard"),
@@ -620,7 +623,7 @@ async function fetch_leaderboard(topN = 50) {
     return snap.docs.map(d => ({ uid: d.id, ...d.data() }));
   } catch (error) {
     console.error("Failed to fetch leaderboard:", error);
-    return [];
+    return {}; // good but check it
   }
 }
 
@@ -682,6 +685,11 @@ async function init_username() {
 function display_leaderboard(){
 
   // fetch leaderboard_entries (to be done)
+
+  // let leaderboard_temp = fetch_leaderboard();
+  // if (Object.keys(leaderboard_temp).length > 0){
+  //   leaderboard_entries = leaderboard_temp;
+  // }
 
   let leaderboard_names = Object.keys(leaderboard_entries);
   let n = leaderboard_names.length;
@@ -770,7 +778,9 @@ const leadarrow = document.getElementById("leadarrow");
 const playername = document.getElementById("playername");
 const namebutton = document.getElementById("namebutton");
 const players = document.getElementById("players");
+const leaderboardswitch = document.getElementById("leaderboardswitch");
 let hidden_leaderboard = true;
+let globalfocusleaderboard = false;
 
 leadarrow.addEventListener("click", async () => {
 
@@ -817,6 +827,20 @@ namebutton.addEventListener("click", async () => {
 
 });
 
+leaderboardswitch.addEventListener("click", async () => {
+
+  // also do things lmao 
+  
+  if (globalfocusleaderboard) {
+    leaderboardswitch.style.justifyContent = "flex-start";
+  }
+  else{
+    leaderboardswitch.style.justifyContent = "flex-end";
+  }
+  
+  globalfocusleaderboard = ! globalfocusleaderboard;
+
+});
 
 
 
