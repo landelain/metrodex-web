@@ -45,11 +45,6 @@ async function load_stations(city_name) {
   }
 }
 
-// function dmsToDecimal(dmsString) {
-//   const [degrees, minutes, seconds] = dmsString.split(' ').map(Number);
-//   return degrees + minutes / 60 + seconds / 3600;
-// }
-
 function build_database(hard_data) {
 
   const local = {};
@@ -57,8 +52,6 @@ function build_database(hard_data) {
   for (const stationid of station_ids) {
     const stationname = hard_data.stations[stationid]["name"];
     let [lat, long] = hard_data.stations[stationid]["coords"];
-    // lat = dmsToDecimal(lat);
-    // long = dmsToDecimal(long);
     local[stationid] = { passed: false, been: false, name: stationname, lat : lat, long : long };
   }
   return local;
@@ -522,8 +515,6 @@ function draw_lines() {
 
 }
 
-// draw_lines();
-
 
 function get_marker_color(point) {
   if (point.been) {
@@ -830,12 +821,14 @@ namebutton.addEventListener("click", async () => {
 leaderboardswitch.addEventListener("click", async () => {
 
   // also do things lmao 
-  
+
   if (globalfocusleaderboard) {
     leaderboardswitch.style.justifyContent = "flex-start";
+    // leaderboardswitch.style.backgroundColor = "#9e9ee9";
   }
   else{
     leaderboardswitch.style.justifyContent = "flex-end";
+    // leaderboardswitch.style.backgroundColor = "#6161a5";
   }
   
   globalfocusleaderboard = ! globalfocusleaderboard;

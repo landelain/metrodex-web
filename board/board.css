@@ -21,16 +21,10 @@ body {
   min-height: 100dvh; 
   width: 100%;
   max-width: 100dvw;
-  /* overflow-x: hidden; */
 
   padding-top: 1%;
 
   background-color:  white;
-  /* background-image: url(../login/login_bg_img.jpg);
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat; */
-
   font-family: Georgia, serif;
 }
 
@@ -202,15 +196,12 @@ body {
   width: 4.1dvh;
   background-color: #65559e;
   border-radius: 10dvh;
-  /* border: 0.5dvh solid;
-  border-color: #302165; */
 
 }
 
 #players {
   height: 45dvh;
   width: 70dvw;
-  /* background-color: aqua; */
   margin-bottom: 3dvh;
   display: flex;
   flex-direction: column;
@@ -246,7 +237,6 @@ body {
   margin-top: 2dvh;
   height: 6dvh;
   width: 70dvw;
-  /* background-color: aliceblue; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -298,7 +288,6 @@ body {
   align-items: center;
   z-index: 10;
   pointer-events: none; 
-  /* position: fixed; */
 }
 
 #arrow {
@@ -340,6 +329,8 @@ body {
   display: none;
   pointer-events: auto; 
 
+  
+
 }
 
 
@@ -377,7 +368,6 @@ body {
 
   height: 5dvh;
   width: fit-content;
-  /* problem with padding here  */
   padding: 5dvh; 
   padding-left: 7dvw;
   padding-right: 7dvw;
@@ -395,9 +385,8 @@ body {
 
 #score-line {
 
-  height: 2dvh;
+  height: 4dvh;
   width: fit-content;
-  /* problem with padding here  */
   padding: 2dvh; 
   padding-left: 5dvw;
   padding-right: 5dvw;
@@ -422,11 +411,11 @@ body {
   display: flex;
   margin-top: 4dvh;
 
+  
 }
 
 .snippet {
 
-  /* background-color: rgb(169, 245, 37); */
   height: fit-content;
   width: 100%;
   margin-bottom: 10dvh;
