@@ -484,7 +484,7 @@ const map = L.map('map', { zoomControl: true, tap: true }).setView([48.8566, 2.3
 //'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png' or osm_bright
 // '&copy; Stadia Maps &copy; OpenStreetMap contributors'
 
-L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png?api_key=ba3276f2-02b1-41d7-a497-aa8ad40e2afb', {
   maxZoom: 19,
   attribution: '&copy; Stadia Maps &copy; OpenStreetMap contributors'
 }).addTo(map);
