@@ -170,7 +170,7 @@ body {
 
 #leaderboard-title {
 
-  font-size: 180%;
+  font-size: 140%;
   color: #302165;
   margin-right: 7dvw;
 
@@ -217,7 +217,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   margin-top: 1dvh;
-  font-size: 140%;
+  font-size: 110%;
   width: 40dvw;
   color: #302165;
 
