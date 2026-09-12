@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, doc, setDoc, getDoc, getDocs, query, where, orderBy, limit, updateDoc, serverTimestamp, deleteField } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, doc, setDoc, getDoc, getDocs, query, where, orderBy, limit, updateDoc, serverTimestamp, deleteField, deleteDoc } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
 
 const firebaseConfig = {
@@ -112,6 +112,8 @@ let current_line_color = "#999999";
 
 async function init_city(city_name) {
 
+  console.log("City name:", city);
+
   hard_data = await load_stations(city_name);
   database = build_database(hard_data);
   await load_or_init_database(city_name, database);
@@ -151,27 +153,32 @@ function compute_score(line_array) {
 
   });
 
-  let score = Math.round((count/total * 10000)) / 100;
-  return score;
+  return [count, total];
 }
 
 function update_score(updatetotal){
 
-  score_line.textContent = String(compute_score([line_numbers[current_line]])).concat(" %");
+  let [count, total] = compute_score([line_numbers[current_line]]);
+  let score = Math.round((count/total * 10000)) / 100;
+  score_line.textContent = String(score).concat(" %");
 
   if(updatetotal){
-    global_user_score = compute_score(line_numbers);
-    score_total.textContent = String(global_user_score).concat(" %")
+    let [city_count, city_total] = compute_score(line_numbers);
+    global_user_score = global_user_score + (city_count - city_user_score);
+    city_user_score = city_count;
+
+    score = Math.round((city_count/city_total * 10000)) / 100;
+    score_total.textContent = String(score).concat(" %")
   }
 
-  // update_leaderboard_score();
-  // -> update remote score on leaderboard database
-  // both for the city and global scores
-}
+  update_leaderboard_score();
 
+}
+  
 const score_total = document.getElementById("score-total");
 const score_line = document.getElementById("score-line");
 let global_user_score = 0;
+let city_user_score = 0;
 
 const stations = document.getElementById("stations");
 const max_snippets = 40;
@@ -590,61 +597,110 @@ document.getElementById('reset-view').addEventListener('click', () => {
 
 // ------------------------- Leader Board -----------------------------------
 
-async function update_leaderboard_score() {
-  if (!current_user) return;
-  try {
-    const ref = doc(db, "leaderboard", "leaderboard");
-    // should check if username already exists
-    await setDoc(ref, { [username] : global_user_score }, { merge: true });
-    console.log("leaderboard updated");
-  } catch (error) {
-    console.error("Failed to update leaderboard:", error);
-  }
-}
-
 async function fetch_leaderboard(topN = 50) {
-  // function to recheck
+  
+  let field = city;
+  if(globalfocusleaderboard){
+    field = "global";
+  }
+
   try {
     const q = query(
       collection(db, "leaderboard"),
-      orderBy("score", "desc"),
+      orderBy(field, "desc"),
       limit(topN)
     );
     const snap = await getDocs(q);
-    return snap.docs.map(d => ({ uid: d.id, ...d.data() }));
+    return snap.docs.reduce((acc,d) => {
+      acc[d.id] = d.data()[field];
+      return acc;
+    }, {});
+
   } catch (error) {
     console.error("Failed to fetch leaderboard:", error);
     return {}; // good but check it
   }
 }
 
-async function delete_leader_username(){
+async function update_leaderboard_score() {
+  if (!current_user) return;
+  try {
+    const ref = doc(db, "leaderboard", username);
+    await setDoc(ref, { "global" : global_user_score, [city] : city_user_score, "userid": current_user.uid }, { merge: true });
+  } catch (error) {
+    console.error("Failed to update leaderboard scores:", error);
+  }
+}
+
+async function check_username_exists(newname){
 
   if (!current_user) return;
-  const ref = doc(db, "leaderboard", "leaderboard");
-  try {
-    await updateDoc(ref, { [username]: deleteField() });
-    console.log("remote updated");
-  } catch (error) {
-    console.error("Failed to sync station update to Firestore:", error);
+  const ref = doc(db, "leaderboard", newname);
+  try{
+    const snap = await getDoc(ref);
+    return snap.exists();
+  }
+  catch(error){
+    console.log("Couldnt check existence of username:", error);
   }
 
 }
 
-async function update_remote_username(){
+async function delete_leader_username(){
 
   if (!current_user) return;
-  const ref = doc(db, "users", current_user.uid);
+
+  const ref = doc(db, "leaderboard", username);
   try {
-    await updateDoc(ref, { "username": username });
-    console.log("remote updated");
-  } catch (error) {
+    const snap = await getDoc(ref);
+    await deleteDoc(ref);
+    if (snap.exists()) {
+      return snap.data()
+    }
+  }
+  catch (error) {
     console.error("Failed to sync station update to Firestore:", error);
+  }
+ 
+}
+
+async function update_remote_leaderboard(user_data){
+
+  if (!current_user) return;
+
+  const ref_lead = doc(db, "leaderboard", username);
+  const ref_user = doc(db, "users", current_user.uid);
+
+  try{
+    await setDoc(ref_lead, user_data);
+    await updateDoc(ref_user, { "username": username});
+  }
+  catch(error){
+    console.log("Couldnt upload new username:", error);
+  }
+}
+
+async function init_user_scores(){
+
+  if (!current_user) return;
+
+  const ref = doc(db, "leaderboard", username);
+  try {
+    const snap = await getDoc(ref);
+    if(snap.exists()){
+      global_user_score = snap.data()["global"];
+      city_user_score = snap.data()[city];
+    }
+  }
+  catch(error){
+    console.log("Couldnt load scores:", error);
   }
 
 }
 
 async function init_username() {
+
+  if (!current_user) return;
 
   // should check if username already exists
   const ref = doc(db, "users", current_user.uid);
@@ -673,14 +729,17 @@ async function init_username() {
 }
 
 
-function display_leaderboard(){
 
-  // fetch leaderboard_entries (to be done)
+// stuff below for display purposes 
 
-  // let leaderboard_temp = fetch_leaderboard();
-  // if (Object.keys(leaderboard_temp).length > 0){
-  //   leaderboard_entries = leaderboard_temp;
-  // }
+
+async function display_leaderboard(){
+
+  let leaderboard_temp = await fetch_leaderboard();
+
+  if (Object.keys(leaderboard_temp).length > 0){
+    leaderboard_entries = leaderboard_temp;
+  }
 
   let leaderboard_names = Object.keys(leaderboard_entries);
   let n = leaderboard_names.length;
@@ -722,7 +781,7 @@ function display_leaderboard(){
 
     // lnames[i].style.display = "flex";
     lnames[i].textContent = name_i;
-    lscores[i].textContent = String(leaderboard_entries[name_i]) + " %";
+    lscores[i].textContent = String(leaderboard_entries[name_i]) + " p";
     
   }
 
@@ -779,7 +838,7 @@ leadarrow.addEventListener("click", async () => {
 
     side.style.justifyContent = "flex-start";
     leaderboard.style.display = "flex";
-    display_leaderboard();
+    await display_leaderboard();
 
     hidden_leaderboard = false;
 
@@ -803,14 +862,21 @@ leadarrow.addEventListener("click", async () => {
 
 namebutton.addEventListener("click", async () => {
 
-  delete_leader_username();
-
   let newname = playername.value;
+  if (await check_username_exists(newname)) return;
+
   if (newname.length < 13){
-    username = newname;
-    // should do them backward to first check if username aready exists thanks to update_leaderboard_score
-    update_remote_username();
-    update_leaderboard_score();
+
+    try {
+      const user_data = await delete_leader_username();
+      username = newname;
+      await update_remote_leaderboard(user_data);
+      console.log(`Successful username change to ${username}`);
+      await display_leaderboard();
+    }
+    catch (error) {
+      console.error('Error with name change:', error);
+  }
   }
   else {
     console.log("Error : new name too long, max 12 chars")
@@ -825,10 +891,12 @@ leaderboardswitch.addEventListener("click", async () => {
   if (globalfocusleaderboard) {
     leaderboardswitch.style.justifyContent = "flex-start";
     // leaderboardswitch.style.backgroundColor = "#9e9ee9";
+    console.log(`Leaderboard switch to ${city}`);
   }
   else{
     leaderboardswitch.style.justifyContent = "flex-end";
     // leaderboardswitch.style.backgroundColor = "#6161a5";
+    console.log("Leaderboard switch to global");
   }
   
   globalfocusleaderboard = ! globalfocusleaderboard;
@@ -840,9 +908,9 @@ leaderboardswitch.addEventListener("click", async () => {
 
 // --------------------------------- Boot -----------------------------------
 
-await authReady;     
+await authReady;   
+await init_username();  
 await init_city(city); 
-await init_username();
-// await update_leaderboard_score();
+await init_user_scores();
 changelinearrow();     
 refresh_map();   
