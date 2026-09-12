@@ -838,7 +838,7 @@ leadarrow.addEventListener("click", async () => {
 
     side.style.justifyContent = "flex-start";
     leaderboard.style.display = "flex";
-    await display_leaderboard();
+    display_leaderboard();
 
     hidden_leaderboard = false;
 
