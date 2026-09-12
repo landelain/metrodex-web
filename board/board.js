@@ -475,9 +475,11 @@ for (let i = 0 ; i < max_snippets ; i++){
 
 const map = L.map('map', { zoomControl: true, tap: true }).setView([48.8566, 2.3359], 13);
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+// 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+// &copy; CARTO
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
-  attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+  attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
 const linesLayer = L.layerGroup().addTo(map);
