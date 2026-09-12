@@ -170,7 +170,7 @@ body {
 
 #leaderboard-title {
 
-  font-size: 210%;
+  font-size: 180%;
   color: #302165;
   margin-right: 7dvw;
 
@@ -178,8 +178,8 @@ body {
 
 #leaderboardswitch {
 
-  height: 5dvh;
-  width: 9dvh;
+  height: 4dvh;
+  width: 7dvh;
   background-color: #9e9ee9;
   border-radius: 10dvh;
   border: 0.5dvh solid;
@@ -192,8 +192,8 @@ body {
 }
 
 #switchball {
-  height: 4.1dvh;
-  width: 4.1dvh;
+  height: 3.1dvh;
+  width: 3.1dvh;
   background-color: #65559e;
   border-radius: 10dvh;
 
