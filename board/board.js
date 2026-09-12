@@ -477,9 +477,16 @@ const map = L.map('map', { zoomControl: true, tap: true }).setView([48.8566, 2.3
 
 // 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
 // &copy; CARTO
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+// 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}{r}.png'
+// '&copy; OpenStreetMap contributors'
+
+//'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png' or osm_bright
+// '&copy; Stadia Maps &copy; OpenStreetMap contributors'
+
+L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
   maxZoom: 19,
-  attribution: '&copy; OpenStreetMap contributors'
+  attribution: '&copy; Stadia Maps &copy; OpenStreetMap contributors'
 }).addTo(map);
 
 const linesLayer = L.layerGroup().addTo(map);
