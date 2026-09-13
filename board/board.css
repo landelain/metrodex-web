@@ -173,6 +173,8 @@ body {
   font-size: 140%;
   color: #302165;
   margin-right: 7dvw;
+  white-space: pre-line;
+  text-align: center;
 
 }
 

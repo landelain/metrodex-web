@@ -128,7 +128,9 @@ async function init_city(city_name) {
   current_line_station_n = current_line_stations.length;
   current_line_color = lines[line_numbers[current_line]]["color"];
 
-  update_score(true);
+  if(!globalfocusleaderboard){
+    leaderboard_title.textContent = `Leaderboard\n${city}`;
+  }
 
 }
 
@@ -164,6 +166,7 @@ function update_score(updatetotal){
 
   if(updatetotal){
     let [city_count, city_total] = compute_score(line_numbers);
+
     global_user_score = global_user_score + (city_count - city_user_score);
     city_user_score = city_count;
 
@@ -234,7 +237,10 @@ select.addEventListener("change", async () => {
 
   city = select.options[select.selectedIndex].value;
   await init_city(city);
+  await init_user_scores();
+  update_score(true);
   changelinearrow();
+  display_leaderboard();
   refresh_map();
   
 });
@@ -337,6 +343,19 @@ arrow.addEventListener("click", async () => {
     arrow.textContent = "⌄";
     arrow.style.justifyContent = "flex-start";
     arrow.style.transform = "translateY(-50%)";
+
+    // hide leaderboard
+
+    side.style.justifyContent = "flex-end";
+    leaderboard.style.display = "none";
+    hide_leaderboard();
+
+    hidden_leaderboard = true;
+
+    leadarrow.textContent = "<";
+    leadarrow.style.transform = "translateX(0%)";
+
+
 
   } else {
 
@@ -744,11 +763,7 @@ async function init_username() {
 
 async function display_leaderboard(){
 
-  let leaderboard_temp = await fetch_leaderboard();
-
-  if (Object.keys(leaderboard_temp).length > 0){
-    leaderboard_entries = leaderboard_temp;
-  }
+  let leaderboard_entries = await fetch_leaderboard();
 
   let leaderboard_names = Object.keys(leaderboard_entries);
   let n = leaderboard_names.length;
@@ -794,6 +809,10 @@ async function display_leaderboard(){
     
   }
 
+  for (let i = n; i < m; i++){
+    leaderboardsnippet[i].style.display = "none";
+  }
+
 }
 
 function hide_leaderboard(){
@@ -810,23 +829,6 @@ function hide_leaderboard(){
 
 
 let username;
-
-let leaderboard_entries = {
-  "lucas" : 2,
-  "cyriac" : 3,
-  "paul" : 4,
-  "flore" : 5,
-  "maelle" : 6,
-  "mia" : 7,
-  "gabou" : 8,
-  "alix" : 9,
-  "angela" : 10,
-  "nic" : 11,
-  "justine" : 12,
-  "antoine" : 13
-    
-  };
-
 let leaderboardsnippet = [];
 let lnames = [];
 let lscores = [];
@@ -836,6 +838,7 @@ const leaderboard = document.getElementById("leaderboard");
 const leadarrow = document.getElementById("leadarrow");
 const playername = document.getElementById("playername");
 const namebutton = document.getElementById("namebutton");
+const leaderboard_title = document.getElementById("leaderboard-title");
 const players = document.getElementById("players");
 const leaderboardswitch = document.getElementById("leaderboardswitch");
 let hidden_leaderboard = true;
@@ -895,20 +898,20 @@ namebutton.addEventListener("click", async () => {
 
 leaderboardswitch.addEventListener("click", async () => {
 
-  // also do things lmao 
 
   if (globalfocusleaderboard) {
     leaderboardswitch.style.justifyContent = "flex-start";
-    // leaderboardswitch.style.backgroundColor = "#9e9ee9";
+    leaderboard_title.textContent = `Leaderboard\n${city}`;
     console.log(`Leaderboard switch to ${city}`);
   }
   else{
     leaderboardswitch.style.justifyContent = "flex-end";
-    // leaderboardswitch.style.backgroundColor = "#6161a5";
+    leaderboard_title.textContent = `Leaderboard\nglobal`;
     console.log("Leaderboard switch to global");
   }
   
   globalfocusleaderboard = ! globalfocusleaderboard;
+  display_leaderboard();
 
 });
 
@@ -921,5 +924,6 @@ await authReady;
 await init_username();  
 await init_city(city); 
 await init_user_scores();
+update_score(true);
 changelinearrow();     
 refresh_map();   
