@@ -246,8 +246,18 @@ select.addEventListener("change", async () => {
   await init_user_scores();
   update_score(true);
   changelinearrow();
-  display_leaderboard();
   refresh_map();
+
+  // hide leaderboard
+  
+  side.style.justifyContent = "flex-end";
+  leaderboard.style.display = "none";
+  hide_leaderboard();
+
+  hidden_leaderboard = true;
+
+  leadarrow.textContent = "<";
+  leadarrow.style.transform = "translateX(0%)";
   
 });
 
