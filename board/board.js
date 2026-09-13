@@ -114,7 +114,12 @@ async function init_city(city_name) {
 
   console.log("City name:", city);
 
-  hard_data = await load_stations(city_name);
+  try {
+    hard_data = await load_stations(city_name);
+  } catch (error) {
+    console.log("Couldn't load hard_data", error);
+    return;
+  }
   database = build_database(hard_data);
   await load_or_init_database(city_name, database);
  
@@ -180,8 +185,8 @@ function update_score(updatetotal){
   
 const score_total = document.getElementById("score-total");
 const score_line = document.getElementById("score-line");
-let global_user_score = 0;
-let city_user_score = 0;
+let global_user_score;
+let city_user_score;
 
 const stations = document.getElementById("stations");
 const max_snippets = 40;
@@ -235,6 +240,7 @@ for (let i = 0 ; i < max_snippets ; i++){
 
 select.addEventListener("change", async () => {
 
+  console.log("stuff");
   city = select.options[select.selectedIndex].value;
   await init_city(city);
   await init_user_scores();
