@@ -167,7 +167,7 @@ function update_score(updatetotal){
 
   let [count, total] = compute_score([line_numbers[current_line]]);
   let score = Math.round((count/total * 10000)) / 100;
-  score_line.textContent = String(score).concat(" %");
+  score_line.textContent = score.toFixed(2).concat(" %");
 
   if(updatetotal){
     let [city_count, city_total] = compute_score(line_numbers);
@@ -176,7 +176,7 @@ function update_score(updatetotal){
     city_user_score = city_count;
 
     score = Math.round((city_count/city_total * 10000)) / 100;
-    score_total.textContent = String(score).concat(" %")
+    score_total.textContent = score.toFixed(2).concat(" %")
   }
 
   update_leaderboard_score();
